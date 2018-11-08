@@ -8,46 +8,56 @@
 
 /* Begin PBXBuildFile section */
 		D15D879ABE91F55805D2F764 /* Pods_SZ_RxProDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD088988B2CA13B71C2DA4D /* Pods_SZ_RxProDemo.framework */; };
-		EE0FE3EA216F220F00254F39 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE3E9216F220F00254F39 /* TodoDetailViewController.swift */; };
 		EE0FE3EC216F27B500254F39 /* UIColor+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE3EB216F27B500254F39 /* UIColor+SZ.swift */; };
-		EE0FE3EE21707CC100254F39 /* PlistDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE3ED21707CC100254F39 /* PlistDocument.swift */; };
 		EE0FE41421757FC900254F39 /* UIImage+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE41321757FC900254F39 /* UIImage+SZ.swift */; };
-		EE0FE416217588A300254F39 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE415217588A300254F39 /* PhotoCell.swift */; };
-		EE0FE418217590AA00254F39 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE417217590AA00254F39 /* PhotoCollectionViewController.swift */; };
 		EE0FE41A217740C700254F39 /* UIViewController+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE419217740C700254F39 /* UIViewController+SZ.swift */; };
 		EE0FE41C217755E800254F39 /* PHPhotoLibrary+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE41B217755E800254F39 /* PHPhotoLibrary+SZ.swift */; };
+		EE184F8F21944D7600D963C9 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */; };
+		EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8C21944D7600D963C9 /* TodoListViewController.swift */; };
+		EE184F9121944D7600D963C9 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */; };
+		EE184F9621944D8300D963C9 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F9321944D8300D963C9 /* PhotoCell.swift */; };
+		EE184F9721944D8300D963C9 /* TodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F9421944D8300D963C9 /* TodoItemCell.swift */; };
+		EE184F9C21944D8C00D963C9 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F9A21944D8C00D963C9 /* TodoItem.swift */; };
+		EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F9B21944D8C00D963C9 /* PlistDocument.swift */; };
+		EE184F9F21944DD800D963C9 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F9E21944DD800D963C9 /* MainListViewController.swift */; };
+		EE184FA221945B6300D963C9 /* MainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FA121945B6300D963C9 /* MainItem.swift */; };
+		EE184FA521945C3A00D963C9 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FA421945C3A00D963C9 /* MainCell.swift */; };
+		EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FA62194625C00D963C9 /* Bundle+SZ.swift */; };
+		EE184FAB2194665A00D963C9 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FAA2194665A00D963C9 /* AppInfo.swift */; };
 		EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD50216C56E2000704F7 /* AppDelegate.swift */; };
 		EEE8DD58216C56E4000704F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD57216C56E4000704F7 /* Assets.xcassets */; };
 		EEE8DD5B216C56E4000704F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */; };
-		EEE8DD66216C5A63000704F7 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD65216C5A63000704F7 /* TodoItem.swift */; };
-		EEE8DD68216C5BE2000704F7 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD67216C5BE2000704F7 /* TodoListViewController.swift */; };
 		EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD69216C993E000704F7 /* UIScreen+SZ.swift */; };
 		EEE8DD6C216C999A000704F7 /* UIDevice+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD6B216C999A000704F7 /* UIDevice+SZ.swift */; };
-		EEE8DD6F216CA6FF000704F7 /* TodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD6E216CA6FF000704F7 /* TodoItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C3CBA123119318BE35CCD15 /* Pods-SZ_RxProDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZ_RxProDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SZ_RxProDemo/Pods-SZ_RxProDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2F27D33C7A932600289D4349 /* Pods-SZ_RxProDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SZ_RxProDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SZ_RxProDemo/Pods-SZ_RxProDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ACD088988B2CA13B71C2DA4D /* Pods_SZ_RxProDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SZ_RxProDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE0FE3E9216F220F00254F39 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
 		EE0FE3EB216F27B500254F39 /* UIColor+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+SZ.swift"; sourceTree = "<group>"; };
-		EE0FE3ED21707CC100254F39 /* PlistDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistDocument.swift; sourceTree = "<group>"; };
 		EE0FE41321757FC900254F39 /* UIImage+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SZ.swift"; sourceTree = "<group>"; };
-		EE0FE415217588A300254F39 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
-		EE0FE417217590AA00254F39 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		EE0FE419217740C700254F39 /* UIViewController+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SZ.swift"; sourceTree = "<group>"; };
 		EE0FE41B217755E800254F39 /* PHPhotoLibrary+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+SZ.swift"; sourceTree = "<group>"; };
+		EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		EE184F8C21944D7600D963C9 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
+		EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
+		EE184F9321944D8300D963C9 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		EE184F9421944D8300D963C9 /* TodoItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItemCell.swift; sourceTree = "<group>"; };
+		EE184F9A21944D8C00D963C9 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		EE184F9B21944D8C00D963C9 /* PlistDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistDocument.swift; sourceTree = "<group>"; };
+		EE184F9E21944DD800D963C9 /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
+		EE184FA121945B6300D963C9 /* MainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItem.swift; sourceTree = "<group>"; };
+		EE184FA421945C3A00D963C9 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		EE184FA62194625C00D963C9 /* Bundle+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SZ.swift"; sourceTree = "<group>"; };
+		EE184FAA2194665A00D963C9 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		EEE8DD4D216C56E2000704F7 /* SZ_RxProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_RxProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DD50216C56E2000704F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE8DD57216C56E4000704F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEE8DD5A216C56E4000704F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEE8DD5C216C56E4000704F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEE8DD65216C5A63000704F7 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
-		EEE8DD67216C5BE2000704F7 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		EEE8DD69216C993E000704F7 /* UIScreen+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+SZ.swift"; sourceTree = "<group>"; };
 		EEE8DD6B216C999A000704F7 /* UIDevice+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+SZ.swift"; sourceTree = "<group>"; };
-		EEE8DD6E216CA6FF000704F7 /* TodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,102 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE184F8821944D7600D963C9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		EE184F8921944D7600D963C9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EE184F9E21944DD800D963C9 /* MainListViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EE184F8A21944D7600D963C9 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */,
+				EE184F8C21944D7600D963C9 /* TodoListViewController.swift */,
+				EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		EE184F8E21944D7600D963C9 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		EE184F9221944D8300D963C9 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				EE184F9321944D8300D963C9 /* PhotoCell.swift */,
+				EE184F9421944D8300D963C9 /* TodoItemCell.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		EE184F9521944D8300D963C9 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		EE184F9821944D8B00D963C9 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		EE184F9921944D8C00D963C9 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				EE184F9A21944D8C00D963C9 /* TodoItem.swift */,
+				EE184F9B21944D8C00D963C9 /* PlistDocument.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		EE184FA021945B2F00D963C9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EE184FA121945B6300D963C9 /* MainItem.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EE184FA321945C2500D963C9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EE184FA421945C3A00D963C9 /* MainCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EE184FA82194661400D963C9 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				EE184FA92194661400D963C9 /* Singleton */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		EE184FA92194661400D963C9 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				EE184FAA2194665A00D963C9 /* AppInfo.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 		EEE8DD44216C56E2000704F7 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +210,7 @@
 				EEE8DD6D216CA6A6000704F7 /* Views */,
 				EEE8DD64216C59CD000704F7 /* Models */,
 				EEE8DD63216C59CD000704F7 /* Helpers */,
+				EE184FA82194661400D963C9 /* Others */,
 				EEE8DD50216C56E2000704F7 /* AppDelegate.swift */,
 				EEE8DD57216C56E4000704F7 /* Assets.xcassets */,
 				EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */,
@@ -115,9 +222,10 @@
 		EEE8DD62216C59CD000704F7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EEE8DD67216C5BE2000704F7 /* TodoListViewController.swift */,
-				EE0FE3E9216F220F00254F39 /* TodoDetailViewController.swift */,
-				EE0FE417217590AA00254F39 /* PhotoCollectionViewController.swift */,
+				EE184F8821944D7600D963C9 /* Base */,
+				EE184F8921944D7600D963C9 /* Main */,
+				EE184F8A21944D7600D963C9 /* Todo */,
+				EE184F8E21944D7600D963C9 /* Weather */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -131,6 +239,7 @@
 				EE0FE41321757FC900254F39 /* UIImage+SZ.swift */,
 				EE0FE419217740C700254F39 /* UIViewController+SZ.swift */,
 				EE0FE41B217755E800254F39 /* PHPhotoLibrary+SZ.swift */,
+				EE184FA62194625C00D963C9 /* Bundle+SZ.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -138,8 +247,9 @@
 		EEE8DD64216C59CD000704F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EEE8DD65216C5A63000704F7 /* TodoItem.swift */,
-				EE0FE3ED21707CC100254F39 /* PlistDocument.swift */,
+				EE184FA021945B2F00D963C9 /* Main */,
+				EE184F9921944D8C00D963C9 /* Todo */,
+				EE184F9821944D8B00D963C9 /* Weather */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,8 +257,9 @@
 		EEE8DD6D216CA6A6000704F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EEE8DD6E216CA6FF000704F7 /* TodoItemCell.swift */,
-				EE0FE415217588A300254F39 /* PhotoCell.swift */,
+				EE184FA321945C2500D963C9 /* Main */,
+				EE184F9221944D8300D963C9 /* Todo */,
+				EE184F9521944D8300D963C9 /* Weather */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,19 +380,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE0FE3EC216F27B500254F39 /* UIColor+SZ.swift in Sources */,
-				EEE8DD68216C5BE2000704F7 /* TodoListViewController.swift in Sources */,
 				EE0FE41421757FC900254F39 /* UIImage+SZ.swift in Sources */,
-				EEE8DD66216C5A63000704F7 /* TodoItem.swift in Sources */,
-				EE0FE3EE21707CC100254F39 /* PlistDocument.swift in Sources */,
+				EE184FA521945C3A00D963C9 /* MainCell.swift in Sources */,
+				EE184FAB2194665A00D963C9 /* AppInfo.swift in Sources */,
+				EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */,
+				EE184F9F21944DD800D963C9 /* MainListViewController.swift in Sources */,
+				EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */,
 				EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */,
 				EEE8DD6C216C999A000704F7 /* UIDevice+SZ.swift in Sources */,
-				EE0FE418217590AA00254F39 /* PhotoCollectionViewController.swift in Sources */,
-				EEE8DD6F216CA6FF000704F7 /* TodoItemCell.swift in Sources */,
+				EE184F8F21944D7600D963C9 /* PhotoCollectionViewController.swift in Sources */,
 				EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */,
-				EE0FE416217588A300254F39 /* PhotoCell.swift in Sources */,
 				EE0FE41C217755E800254F39 /* PHPhotoLibrary+SZ.swift in Sources */,
 				EE0FE41A217740C700254F39 /* UIViewController+SZ.swift in Sources */,
-				EE0FE3EA216F220F00254F39 /* TodoDetailViewController.swift in Sources */,
+				EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */,
+				EE184F9621944D8300D963C9 /* PhotoCell.swift in Sources */,
+				EE184F9721944D8300D963C9 /* TodoItemCell.swift in Sources */,
+				EE184FA221945B6300D963C9 /* MainItem.swift in Sources */,
+				EE184F9C21944D8C00D963C9 /* TodoItem.swift in Sources */,
+				EE184F9121944D7600D963C9 /* TodoDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
