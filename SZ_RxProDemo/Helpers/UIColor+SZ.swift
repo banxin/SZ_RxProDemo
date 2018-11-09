@@ -54,7 +54,7 @@ public extension UIColor {
             cString = (cString as NSString).substring(from: 1)
         }
         // 必须为6位
-        if (cString.characters.count != 6) {
+        if (cString.count != 6) {
             return UIColor.gray
         }
         // 红色的色值
