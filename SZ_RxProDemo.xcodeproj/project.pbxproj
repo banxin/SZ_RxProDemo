@@ -33,6 +33,9 @@
 		EE184FD32195388200D963C9 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FD22195388200D963C9 /* CurrentWeatherView.swift */; };
 		EE184FD5219538CF00D963C9 /* UIView+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FD4219538CF00D963C9 /* UIView+SZ.swift */; };
 		EE184FD72195394600D963C9 /* UILabel+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FD62195394600D963C9 /* UILabel+SZ.swift */; };
+		EE184FD921957BD800D963C9 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FD821957BD800D963C9 /* WeatherForecastView.swift */; };
+		EE184FDB2195848400D963C9 /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FDA2195848400D963C9 /* URLSessionDataTask.swift */; };
+		EE184FDD2195849300D963C9 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FDC2195849300D963C9 /* Double.swift */; };
 		EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD50216C56E2000704F7 /* AppDelegate.swift */; };
 		EEE8DD58216C56E4000704F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD57216C56E4000704F7 /* Assets.xcassets */; };
 		EEE8DD5B216C56E4000704F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */; };
@@ -69,6 +72,9 @@
 		EE184FD22195388200D963C9 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
 		EE184FD4219538CF00D963C9 /* UIView+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SZ.swift"; sourceTree = "<group>"; };
 		EE184FD62195394600D963C9 /* UILabel+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+SZ.swift"; sourceTree = "<group>"; };
+		EE184FD821957BD800D963C9 /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
+		EE184FDA2195848400D963C9 /* URLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
+		EE184FDC2195849300D963C9 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		EEE8DD4D216C56E2000704F7 /* SZ_RxProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_RxProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DD50216C56E2000704F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE8DD57216C56E4000704F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				EE184FD22195388200D963C9 /* CurrentWeatherView.swift */,
+				EE184FD821957BD800D963C9 /* WeatherForecastView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -228,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				EE184FCA2195347C00D963C9 /* URLSession.swift */,
+				EE184FDA2195848400D963C9 /* URLSessionDataTask.swift */,
+				EE184FDC2195849300D963C9 /* Double.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -449,9 +458,11 @@
 				EE184FC5219533D900D963C9 /* WeatherDataManager.swift in Sources */,
 				EE0FE3EC216F27B500254F39 /* UIColor+SZ.swift in Sources */,
 				EE0FE41421757FC900254F39 /* UIImage+SZ.swift in Sources */,
+				EE184FDB2195848400D963C9 /* URLSessionDataTask.swift in Sources */,
 				EE184FD32195388200D963C9 /* CurrentWeatherView.swift in Sources */,
 				EE184FAB2194665A00D963C9 /* AppInfo.swift in Sources */,
 				EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */,
+				EE184FDD2195849300D963C9 /* Double.swift in Sources */,
 				EE184F9F21944DD800D963C9 /* MainListViewController.swift in Sources */,
 				EE184FB92195320D00D963C9 /* Configuration.swift in Sources */,
 				EE184FD72195394600D963C9 /* UILabel+SZ.swift in Sources */,
@@ -465,6 +476,7 @@
 				EE0FE41C217755E800254F39 /* PHPhotoLibrary+SZ.swift in Sources */,
 				EE184FBD2195328900D963C9 /* Location.swift in Sources */,
 				EE0FE41A217740C700254F39 /* UIViewController+SZ.swift in Sources */,
+				EE184FD921957BD800D963C9 /* WeatherForecastView.swift in Sources */,
 				EE184FCB2195347C00D963C9 /* URLSession.swift in Sources */,
 				EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */,
 				EE184FCF219534A000D963C9 /* URLSessionDataTaskProtocol.swift in Sources */,
