@@ -36,6 +36,8 @@
 		EE184FD921957BD800D963C9 /* WeatherForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FD821957BD800D963C9 /* WeatherForecastView.swift */; };
 		EE184FDB2195848400D963C9 /* URLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FDA2195848400D963C9 /* URLSessionDataTask.swift */; };
 		EE184FDD2195849300D963C9 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FDC2195849300D963C9 /* Double.swift */; };
+		EE184FE12195893800D963C9 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FE02195893800D963C9 /* CurrentWeatherViewModel.swift */; };
+		EE184FE32195897100D963C9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FE22195897100D963C9 /* UIImage.swift */; };
 		EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD50216C56E2000704F7 /* AppDelegate.swift */; };
 		EEE8DD58216C56E4000704F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD57216C56E4000704F7 /* Assets.xcassets */; };
 		EEE8DD5B216C56E4000704F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */; };
@@ -75,6 +77,8 @@
 		EE184FD821957BD800D963C9 /* WeatherForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastView.swift; sourceTree = "<group>"; };
 		EE184FDA2195848400D963C9 /* URLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask.swift; sourceTree = "<group>"; };
 		EE184FDC2195849300D963C9 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		EE184FE02195893800D963C9 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		EE184FE22195897100D963C9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		EEE8DD4D216C56E2000704F7 /* SZ_RxProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_RxProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DD50216C56E2000704F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE8DD57216C56E4000704F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 				EE184FCA2195347C00D963C9 /* URLSession.swift */,
 				EE184FDA2195848400D963C9 /* URLSessionDataTask.swift */,
 				EE184FDC2195849300D963C9 /* Double.swift */,
+				EE184FE22195897100D963C9 /* UIImage.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -254,6 +259,22 @@
 			children = (
 				EE184FCC2195349000D963C9 /* URLSessionProtocol.swift */,
 				EE184FCE219534A000D963C9 /* URLSessionDataTaskProtocol.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		EE184FDE2195892800D963C9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				EE184FDF2195892800D963C9 /* Weather */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EE184FDF2195892800D963C9 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				EE184FE02195893800D963C9 /* CurrentWeatherViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -279,6 +300,7 @@
 		EEE8DD4F216C56E2000704F7 /* SZ_RxProDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EE184FDE2195892800D963C9 /* ViewModels */,
 				EE184FC62195345800D963C9 /* Extensions */,
 				EE184FC82195345800D963C9 /* Protocols */,
 				EE184FC2219533C800D963C9 /* Managers */,
@@ -467,6 +489,7 @@
 				EE184FB92195320D00D963C9 /* Configuration.swift in Sources */,
 				EE184FD72195394600D963C9 /* UILabel+SZ.swift in Sources */,
 				EE184FCD2195349000D963C9 /* URLSessionProtocol.swift in Sources */,
+				EE184FE32195897100D963C9 /* UIImage.swift in Sources */,
 				EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */,
 				EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */,
 				EEE8DD6C216C999A000704F7 /* UIDevice+SZ.swift in Sources */,
@@ -478,6 +501,7 @@
 				EE0FE41A217740C700254F39 /* UIViewController+SZ.swift in Sources */,
 				EE184FD921957BD800D963C9 /* WeatherForecastView.swift in Sources */,
 				EE184FCB2195347C00D963C9 /* URLSession.swift in Sources */,
+				EE184FE12195893800D963C9 /* CurrentWeatherViewModel.swift in Sources */,
 				EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */,
 				EE184FCF219534A000D963C9 /* URLSessionDataTaskProtocol.swift in Sources */,
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,

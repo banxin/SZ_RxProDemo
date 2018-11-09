@@ -71,6 +71,7 @@ extension PhotoCell {
     func selected() {
         
         self.flipCheckmark()
+        
         setNeedsDisplay()
         
         UIView.animate(withDuration: 0.1, animations: { [weak self] in

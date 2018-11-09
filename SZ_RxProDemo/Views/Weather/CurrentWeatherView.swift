@@ -46,15 +46,7 @@ class CurrentWeatherView: UIView {
     
     weak var delegate: CurrentWeatherViewDelegate?
     
-    var now: WeatherData? {
-        
-        didSet {
-            DispatchQueue.main.async { self.updateView() }
-        }
-    }
-    
-    var location: Location? {
-        
+    var viewModel: CurrentWeatherViewModel? {
         didSet {
             DispatchQueue.main.async { self.updateView() }
         }
@@ -217,12 +209,12 @@ extension CurrentWeatherView {
         delegate?.settingsButtonPressed()
     }
     
-    private func updateView() {
+    func updateView() {
         
         activityIndicatorView.stopAnimating()
         
-        if let now = now, let location = location {
-            updateWeatherContainer(with: now, at: location)
+        if let vm = viewModel, vm.isUpdateReady {
+            updateWeatherContainer(with: vm)
         }
         else {
             loadingFailedLabel.isHidden = false
@@ -230,60 +222,16 @@ extension CurrentWeatherView {
         }
     }
     
-    private func updateWeatherContainer(with data: WeatherData, at location: Location) {
+    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
         
+        loadingFailedLabel.isHidden   = true
         weatherContainerView.isHidden = false
         
-        // 1. Set location
-        locationLabel.text = location.name
-        
-        // 2. Format and set temperature
-        temperatureLabel.text = String(
-            format: "%.1f °C",
-            data.currently.temperature.toCelcius())
-        
-        // 3. Set weather icon
-        weatherIcon.image = weatherIcon(
-            of: data.currently.icon)
-        
-        // 4. Format and set humidity
-        humidityLabel.text = String(
-            format: "%.1f",
-            data.currently.humidity)
-        
-        // 5. Set weather summary
-        summaryLabel.text = data.currently.summary
-        
-        // 6. Format and set datetime
-        let formatter = DateFormatter()
-        formatter.dateFormat = "E, dd MMMM"
-        dateLabel.text = formatter.string(
-            from: data.currently.time)
-    }
-    
-    private func weatherIcon(of name: String) -> UIImage? {
-        
-        switch name {
-        case "clear-day":
-            return UIImage(named: "clear-day")
-        case "clear-night":
-            return UIImage(named: "clear-night")
-        case "rain":
-            return UIImage(named: "rain")
-        case "snow":
-            return UIImage(named: "snow")
-        case "sleet":
-            return UIImage(named: "sleet")
-        case "wind":
-            return UIImage(named: "wind")
-        case "cloudy":
-            return UIImage(named: "cloudy")
-        case "partly-cloudy-day":
-            return UIImage(named: "partly-cloudy-day")
-        case "partly-cloudy-night":
-            return UIImage(named: "partly-cloudy-night")
-        default:
-            return UIImage(named: "clear-day")
-        }
+        locationLabel.text    = vm.city
+        temperatureLabel.text = vm.temperature
+        weatherIcon.image     = vm.weatherIcon
+        humidityLabel.text    = vm.humidity
+        summaryLabel.text     = vm.summary
+        dateLabel.text        = vm.date
     }
 }
