@@ -191,6 +191,7 @@ extension WeatherListViewController {
                 
                 // Nofity CurrentWeatherViewController
                 self.currentWeatherView.viewModel?.weather = response
+                self.weatherForecastView.viewModel = WeekWeatherViewModel(weatherData: response.daily.data)
             }
         })
     }

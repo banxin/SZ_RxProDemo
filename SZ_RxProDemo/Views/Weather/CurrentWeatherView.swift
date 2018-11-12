@@ -214,9 +214,11 @@ extension CurrentWeatherView {
         activityIndicatorView.stopAnimating()
         
         if let vm = viewModel, vm.isUpdateReady {
+            
             updateWeatherContainer(with: vm)
-        }
-        else {
+            
+        } else {
+            
             loadingFailedLabel.isHidden = false
             loadingFailedLabel.text = "Fetch weather/location failed."
         }

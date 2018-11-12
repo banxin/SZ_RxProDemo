@@ -486,23 +486,23 @@ extension TodoListViewController: UITableViewDataSource, UITableViewDelegate {
 //    }
 //}
 
-//// MARK: - rx
-//extension TodoListViewController {
+// MARK: - rx
+extension TodoListViewController {
+
+    private func rxBind() {
+
+        // 将数据源数据绑定到tableView上
+        todoItems.bind(to: tableView!.rx.items(cellIdentifier: "TodoItemCellIndentifier")) { _, todo, originCell in
+
+            if let cell = originCell as? TodoItemCell {
+
+                cell.item.accept(todo)
+            }
+
+        }.disposed(by: bag)
+
+//        tableView?.rx.modelSelected(TodoItem.self).subscribe(onNext: { (todo) in
 //
-//    private func rxBind() {
-//
-//        // 将数据源数据绑定到tableView上
-//        todoItems.bind(to: tableView!.rx.items(cellIdentifier: "TodoItemCellIndentifier")) { _, todo, originCell in
-//
-//            if let cell = originCell as? TodoItemCell {
-//
-//                cell.item.accept(todo)
-//            }
-//
-//        }.disposed(by: bag)
-//
-////        tableView?.rx.modelSelected(TodoItem.self).subscribe(onNext: { (todo) in
-////
-////        }).disposed(by: bag)
-//    }
-//}
+//        }).disposed(by: bag)
+    }
+}
