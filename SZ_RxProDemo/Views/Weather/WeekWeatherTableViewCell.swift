@@ -65,7 +65,7 @@ extension WeekWeatherTableViewCell {
         
         weatherIcon.snp.makeConstraints { (maker) in
             
-            maker.left.top.equalTo(11)
+            maker.top.equalTo(11)
             maker.right.equalTo(-15)
             maker.size.equalTo(CGSize(width: 58, height: 58))
         }

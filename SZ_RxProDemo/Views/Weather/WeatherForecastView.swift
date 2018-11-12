@@ -145,22 +145,6 @@ extension WeatherForecastView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: kWeekWeatherTableViewCellIndentifier, for: indexPath) as? WeekWeatherTableViewCell {
-//
-//            if let vm = viewModel {
-//
-//                cell.week.text = vm.week(for: indexPath.row)
-//                cell.date.text = vm.date(for: indexPath.row)
-//                cell.temperature.text = vm.temperature(for: indexPath.row)
-//                cell.weatherIcon.image = vm.weatherIcon(for: indexPath.row)
-//                cell.humid.text = vm.humidity(for: indexPath.row)
-//            }
-//
-//            return cell
-//        }
-//
-//        return UITableViewCell()
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: kWeekWeatherTableViewCellIndentifier, for: indexPath) as? WeekWeatherTableViewCell
 
         guard let row = cell else {

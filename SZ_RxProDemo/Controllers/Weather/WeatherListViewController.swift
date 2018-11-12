@@ -55,6 +55,13 @@ class WeatherListViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 }
 
 // MARK: - UI
@@ -63,8 +70,6 @@ extension WeatherListViewController {
     private func setupUI() {
         
         view.backgroundColor = UIColor.white
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
         
         currentWeatherView.delegate = self
         currentWeatherView.viewModel = CurrentWeatherViewModel()
@@ -111,7 +116,24 @@ extension WeatherListViewController: CurrentWeatherViewDelegate {
     
     func settingsButtonPressed() {
         
-        print("settingsButtonPressed")
+        let settingVC = SettingsViewController()
+        
+        settingVC.delegate = self
+        
+        navigationController?.pushViewController(settingVC, animated: true)
+    }
+}
+
+extension WeatherListViewController: SettingsViewControllerDelegate {
+    
+    func controllerDidChangeTimeMode() {
+        
+        
+    }
+    
+    func controllerDidChangeTemperatureMode() {
+        
+        
     }
 }
 
