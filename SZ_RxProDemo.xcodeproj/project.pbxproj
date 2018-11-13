@@ -17,6 +17,12 @@
 		EE17ED4E219A667A009FB648 /* SettingsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */; };
 		EE17ED50219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4F219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift */; };
 		EE17ED52219A6AFB009FB648 /* WeekWeatherDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */; };
+		EE17ED54219A7131009FB648 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED53219A7131009FB648 /* LocationsViewController.swift */; };
+		EE17ED56219A7209009FB648 /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED55219A7209009FB648 /* CLLocation.swift */; };
+		EE17ED58219A72AE009FB648 /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED57219A72AE009FB648 /* LocationsViewModel.swift */; };
+		EE17ED5A219A72C1009FB648 /* LocationRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED59219A72C1009FB648 /* LocationRepresentable.swift */; };
+		EE17ED5C219A7316009FB648 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED5B219A7316009FB648 /* LocationTableViewCell.swift */; };
+		EE17ED5E219A740F009FB648 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED5D219A740F009FB648 /* AddLocationViewController.swift */; };
 		EE184F8F21944D7600D963C9 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */; };
 		EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8C21944D7600D963C9 /* TodoListViewController.swift */; };
 		EE184F9121944D7600D963C9 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */; };
@@ -69,6 +75,12 @@
 		EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepresentable.swift; sourceTree = "<group>"; };
 		EE17ED4F219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherDayRepresentable.swift; sourceTree = "<group>"; };
 		EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherDayViewModel.swift; sourceTree = "<group>"; };
+		EE17ED53219A7131009FB648 /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		EE17ED55219A7209009FB648 /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
+		EE17ED57219A72AE009FB648 /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
+		EE17ED59219A72C1009FB648 /* LocationRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRepresentable.swift; sourceTree = "<group>"; };
+		EE17ED5B219A7316009FB648 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		EE17ED5D219A740F009FB648 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		EE184F8C21944D7600D963C9 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +174,8 @@
 			children = (
 				EE184FD02195384D00D963C9 /* WeatherListViewController.swift */,
 				EE184FEC219966C300D963C9 /* SettingsViewController.swift */,
+				EE17ED53219A7131009FB648 /* LocationsViewController.swift */,
+				EE17ED5D219A740F009FB648 /* AddLocationViewController.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 				EE184FD821957BD800D963C9 /* WeatherForecastView.swift */,
 				EE184FE42195999B00D963C9 /* WeekWeatherTableViewCell.swift */,
 				EE184FEA21995F9400D963C9 /* SettingsTableViewCell.swift */,
+				EE17ED5B219A7316009FB648 /* LocationTableViewCell.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -269,6 +284,7 @@
 				EE184FDC2195849300D963C9 /* Double.swift */,
 				EE184FE22195897100D963C9 /* UIImage.swift */,
 				EE184FEE2199682100D963C9 /* UserDefaults.swift */,
+				EE17ED55219A7209009FB648 /* CLLocation.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -288,6 +304,7 @@
 				EE184FCE219534A000D963C9 /* URLSessionDataTaskProtocol.swift */,
 				EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */,
 				EE17ED4F219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift */,
+				EE17ED59219A72C1009FB648 /* LocationRepresentable.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -308,6 +325,7 @@
 				EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */,
 				EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */,
 				EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */,
+				EE17ED57219A72AE009FB648 /* LocationsViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -513,14 +531,17 @@
 				EE184FC5219533D900D963C9 /* WeatherDataManager.swift in Sources */,
 				EE0FE3EC216F27B500254F39 /* UIColor+SZ.swift in Sources */,
 				EE0FE41421757FC900254F39 /* UIImage+SZ.swift in Sources */,
+				EE17ED56219A7209009FB648 /* CLLocation.swift in Sources */,
 				EE184FDB2195848400D963C9 /* URLSessionDataTask.swift in Sources */,
 				EE184FD32195388200D963C9 /* CurrentWeatherView.swift in Sources */,
 				EE184FED219966C300D963C9 /* SettingsViewController.swift in Sources */,
 				EE184FE9219921B700D963C9 /* WeekWeatherViewModel.swift in Sources */,
+				EE17ED5C219A7316009FB648 /* LocationTableViewCell.swift in Sources */,
 				EE184FAB2194665A00D963C9 /* AppInfo.swift in Sources */,
 				EE184FE52195999B00D963C9 /* WeekWeatherTableViewCell.swift in Sources */,
 				EE184FEB21995F9400D963C9 /* SettingsTableViewCell.swift in Sources */,
 				EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */,
+				EE17ED54219A7131009FB648 /* LocationsViewController.swift in Sources */,
 				EE184FDD2195849300D963C9 /* Double.swift in Sources */,
 				EE184F9F21944DD800D963C9 /* MainListViewController.swift in Sources */,
 				EE184FB92195320D00D963C9 /* Configuration.swift in Sources */,
@@ -534,9 +555,11 @@
 				EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */,
 				EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */,
 				EEE8DD6C216C999A000704F7 /* UIDevice+SZ.swift in Sources */,
+				EE17ED5E219A740F009FB648 /* AddLocationViewController.swift in Sources */,
 				EE184F8F21944D7600D963C9 /* PhotoCollectionViewController.swift in Sources */,
 				EE184FE72199217B00D963C9 /* ForecastData.swift in Sources */,
 				EE184FD12195384D00D963C9 /* WeatherListViewController.swift in Sources */,
+				EE17ED58219A72AE009FB648 /* LocationsViewModel.swift in Sources */,
 				EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */,
 				EE0FE41C217755E800254F39 /* PHPhotoLibrary+SZ.swift in Sources */,
 				EE184FBD2195328900D963C9 /* Location.swift in Sources */,
@@ -550,6 +573,7 @@
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,
 				EE184F9621944D8300D963C9 /* PhotoCell.swift in Sources */,
 				EE184FD5219538CF00D963C9 /* UIView+SZ.swift in Sources */,
+				EE17ED5A219A72C1009FB648 /* LocationRepresentable.swift in Sources */,
 				EE17ED4C219A6398009FB648 /* SettingsTemperatureViewModel.swift in Sources */,
 				EE184F9721944D8300D963C9 /* TodoItemCell.swift in Sources */,
 				EE184F9C21944D8C00D963C9 /* TodoItem.swift in Sources */,

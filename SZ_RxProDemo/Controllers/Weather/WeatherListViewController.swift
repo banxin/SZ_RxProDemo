@@ -111,7 +111,7 @@ extension WeatherListViewController: CurrentWeatherViewDelegate {
     
     func locationButtonPressed() {
         
-        print("locationButtonPressed")
+        navigationController?.pushViewController(LocationsViewController(), animated: true)
     }
     
     func settingsButtonPressed() {
@@ -128,12 +128,12 @@ extension WeatherListViewController: SettingsViewControllerDelegate {
     
     func controllerDidChangeTimeMode() {
         
-        
+        reloadUI()
     }
     
     func controllerDidChangeTemperatureMode() {
         
-        
+        reloadUI()
     }
 }
 
@@ -237,5 +237,11 @@ extension WeatherListViewController {
                 self.currentWeatherView.viewModel?.location = l
             }
         })
+    }
+    
+    private func reloadUI() {
+        
+        currentWeatherView.updateView()
+        weatherForecastView.updateView()
     }
 }

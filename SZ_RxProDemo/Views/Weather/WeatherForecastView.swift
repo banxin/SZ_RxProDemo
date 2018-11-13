@@ -161,10 +161,10 @@ extension WeatherForecastView: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-// MARK: - private method
+// MARK: - public method
 extension WeatherForecastView {
     
-    private func updateView() {
+     func updateView() {
         
         activityIndicatorView.stopAnimating()
         
