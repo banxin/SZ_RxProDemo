@@ -152,13 +152,9 @@ extension WeatherForecastView: UITableViewDataSource, UITableViewDelegate {
             fatalError("Unexpected table view cell.")
         }
 
-        if let vm = viewModel {
-
-            row.week.text = vm.week(for: indexPath.row)
-            row.date.text = vm.date(for: indexPath.row)
-            row.temperature.text = vm.temperature(for: indexPath.row)
-            row.weatherIcon.image = vm.weatherIcon(for: indexPath.row)
-            row.humid.text = vm.humidity(for: indexPath.row)
+        if let weatherDay = viewModel?.viewModel(for: indexPath.row) {
+            
+            row.configure(with: weatherDay)
         }
 
         return row

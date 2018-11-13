@@ -15,6 +15,8 @@
 		EE17ED4A219A636A009FB648 /* SettingsDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */; };
 		EE17ED4C219A6398009FB648 /* SettingsTemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */; };
 		EE17ED4E219A667A009FB648 /* SettingsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */; };
+		EE17ED50219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4F219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift */; };
+		EE17ED52219A6AFB009FB648 /* WeekWeatherDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */; };
 		EE184F8F21944D7600D963C9 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */; };
 		EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8C21944D7600D963C9 /* TodoListViewController.swift */; };
 		EE184F9121944D7600D963C9 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */; };
@@ -65,6 +67,8 @@
 		EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDateViewModel.swift; sourceTree = "<group>"; };
 		EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTemperatureViewModel.swift; sourceTree = "<group>"; };
 		EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepresentable.swift; sourceTree = "<group>"; };
+		EE17ED4F219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherDayRepresentable.swift; sourceTree = "<group>"; };
+		EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekWeatherDayViewModel.swift; sourceTree = "<group>"; };
 		EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		EE184F8C21944D7600D963C9 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 				EE184FCC2195349000D963C9 /* URLSessionProtocol.swift */,
 				EE184FCE219534A000D963C9 /* URLSessionDataTaskProtocol.swift */,
 				EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */,
+				EE17ED4F219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				EE184FE8219921B700D963C9 /* WeekWeatherViewModel.swift */,
 				EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */,
 				EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */,
+				EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				EE184F9F21944DD800D963C9 /* MainListViewController.swift in Sources */,
 				EE184FB92195320D00D963C9 /* Configuration.swift in Sources */,
 				EE184FD72195394600D963C9 /* UILabel+SZ.swift in Sources */,
+				EE17ED50219A6AE4009FB648 /* WeekWeatherDayRepresentable.swift in Sources */,
 				EE17ED4E219A667A009FB648 /* SettingsRepresentable.swift in Sources */,
 				EE184FCD2195349000D963C9 /* URLSessionProtocol.swift in Sources */,
 				EE184FE32195897100D963C9 /* UIImage.swift in Sources */,
@@ -537,6 +544,7 @@
 				EE184FD921957BD800D963C9 /* WeatherForecastView.swift in Sources */,
 				EE184FCB2195347C00D963C9 /* URLSession.swift in Sources */,
 				EE184FE12195893800D963C9 /* CurrentWeatherViewModel.swift in Sources */,
+				EE17ED52219A6AFB009FB648 /* WeekWeatherDayViewModel.swift in Sources */,
 				EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */,
 				EE184FCF219534A000D963C9 /* URLSessionDataTaskProtocol.swift in Sources */,
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,

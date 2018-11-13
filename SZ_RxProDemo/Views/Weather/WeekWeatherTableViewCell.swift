@@ -99,8 +99,15 @@ extension WeekWeatherTableViewCell {
     }
 }
 
-// MARK: - private method
+// MARK: - public method
 extension WeekWeatherTableViewCell {
     
-    
+    func configure(with vm: WeekWeatherDayRepresentable) {
+        
+        week.text         = vm.week
+        date.text         = vm.date
+        humid.text        = vm.humidity
+        temperature.text  = vm.temperature
+        weatherIcon.image = vm.weatherIcon
+    }
 }
