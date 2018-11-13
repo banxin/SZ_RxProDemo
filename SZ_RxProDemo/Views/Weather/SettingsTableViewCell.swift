@@ -45,3 +45,12 @@ extension SettingsTableViewCell {
         }
     }
 }
+
+extension SettingsTableViewCell {
+    
+    func configure(with vm: SettingsRepresentable) {
+        
+        title.text    = vm.labelText
+        accessoryType = vm.accessory
+    }
+}

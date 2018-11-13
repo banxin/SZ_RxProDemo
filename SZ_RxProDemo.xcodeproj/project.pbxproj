@@ -12,6 +12,9 @@
 		EE0FE41421757FC900254F39 /* UIImage+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE41321757FC900254F39 /* UIImage+SZ.swift */; };
 		EE0FE41A217740C700254F39 /* UIViewController+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE419217740C700254F39 /* UIViewController+SZ.swift */; };
 		EE0FE41C217755E800254F39 /* PHPhotoLibrary+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0FE41B217755E800254F39 /* PHPhotoLibrary+SZ.swift */; };
+		EE17ED4A219A636A009FB648 /* SettingsDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */; };
+		EE17ED4C219A6398009FB648 /* SettingsTemperatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */; };
+		EE17ED4E219A667A009FB648 /* SettingsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */; };
 		EE184F8F21944D7600D963C9 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */; };
 		EE184F9021944D7600D963C9 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8C21944D7600D963C9 /* TodoListViewController.swift */; };
 		EE184F9121944D7600D963C9 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */; };
@@ -59,6 +62,9 @@
 		EE0FE41321757FC900254F39 /* UIImage+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+SZ.swift"; sourceTree = "<group>"; };
 		EE0FE419217740C700254F39 /* UIViewController+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SZ.swift"; sourceTree = "<group>"; };
 		EE0FE41B217755E800254F39 /* PHPhotoLibrary+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHPhotoLibrary+SZ.swift"; sourceTree = "<group>"; };
+		EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDateViewModel.swift; sourceTree = "<group>"; };
+		EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTemperatureViewModel.swift; sourceTree = "<group>"; };
+		EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepresentable.swift; sourceTree = "<group>"; };
 		EE184F8B21944D7600D963C9 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		EE184F8C21944D7600D963C9 /* TodoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		EE184F8D21944D7600D963C9 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 			children = (
 				EE184FCC2195349000D963C9 /* URLSessionProtocol.swift */,
 				EE184FCE219534A000D963C9 /* URLSessionDataTaskProtocol.swift */,
+				EE17ED4D219A667A009FB648 /* SettingsRepresentable.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -293,6 +300,8 @@
 			children = (
 				EE184FE02195893800D963C9 /* CurrentWeatherViewModel.swift */,
 				EE184FE8219921B700D963C9 /* WeekWeatherViewModel.swift */,
+				EE17ED49219A636A009FB648 /* SettingsDateViewModel.swift */,
+				EE17ED4B219A6398009FB648 /* SettingsTemperatureViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -318,12 +327,12 @@
 		EEE8DD4F216C56E2000704F7 /* SZ_RxProDemo */ = {
 			isa = PBXGroup;
 			children = (
-				EE184FDE2195892800D963C9 /* ViewModels */,
 				EE184FC62195345800D963C9 /* Extensions */,
 				EE184FC82195345800D963C9 /* Protocols */,
 				EE184FC2219533C800D963C9 /* Managers */,
 				EE184FB6219531EF00D963C9 /* Configurations */,
 				EEE8DD62216C59CD000704F7 /* Controllers */,
+				EE184FDE2195892800D963C9 /* ViewModels */,
 				EEE8DD6D216CA6A6000704F7 /* Views */,
 				EEE8DD64216C59CD000704F7 /* Models */,
 				EEE8DD63216C59CD000704F7 /* Helpers */,
@@ -510,8 +519,10 @@
 				EE184F9F21944DD800D963C9 /* MainListViewController.swift in Sources */,
 				EE184FB92195320D00D963C9 /* Configuration.swift in Sources */,
 				EE184FD72195394600D963C9 /* UILabel+SZ.swift in Sources */,
+				EE17ED4E219A667A009FB648 /* SettingsRepresentable.swift in Sources */,
 				EE184FCD2195349000D963C9 /* URLSessionProtocol.swift in Sources */,
 				EE184FE32195897100D963C9 /* UIImage.swift in Sources */,
+				EE17ED4A219A636A009FB648 /* SettingsDateViewModel.swift in Sources */,
 				EE184FEF2199682100D963C9 /* UserDefaults.swift in Sources */,
 				EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */,
 				EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */,
@@ -531,6 +542,7 @@
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,
 				EE184F9621944D8300D963C9 /* PhotoCell.swift in Sources */,
 				EE184FD5219538CF00D963C9 /* UIView+SZ.swift in Sources */,
+				EE17ED4C219A6398009FB648 /* SettingsTemperatureViewModel.swift in Sources */,
 				EE184F9721944D8300D963C9 /* TodoItemCell.swift in Sources */,
 				EE184F9C21944D8C00D963C9 /* TodoItem.swift in Sources */,
 				EE184F9121944D7600D963C9 /* TodoDetailViewController.swift in Sources */,

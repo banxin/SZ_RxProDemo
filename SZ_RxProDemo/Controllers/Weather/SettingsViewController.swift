@@ -113,37 +113,32 @@ extension SettingsViewController {
             fatalError("Unexpected section index")
         }
         
+        var vm: SettingsRepresentable?
+        
         switch section {
             
         case .date:
             
-            cell.title.text = (indexPath.row == 0) ? "Fri, 01 December" : "F, 12/01"
-            
-            let timeMode = UserDefaults.dateMode()
-            
-            if indexPath.row == timeMode.rawValue {
+            guard let dateMode = DateMode(rawValue: indexPath.row) else {
                 
-                cell.accessoryType = .checkmark
-                
-            } else {
-                
-                cell.accessoryType = .none
+                fatalError("Invalide IndexPath")
             }
+            
+            vm = SettingsDateViewModel(dateMode: dateMode)
             
         case .temperature:
             
-            cell.title.text = (indexPath.row == 0) ? "Celcius" : "Fahrenheit"
-            
-            let temperatureNotation = UserDefaults.temperatureMode()
-            
-            if indexPath.row == temperatureNotation.rawValue {
+            guard let temperatureMode = TemperatureMode(rawValue: indexPath.row) else {
                 
-                cell.accessoryType = .checkmark
-                
-            } else {
-                
-                cell.accessoryType = .none
+                fatalError("Invalid IndexPath")
             }
+            
+            vm = SettingsTemperatureViewModel(temperatureMode: temperatureMode)
+        }
+        
+        if let vm = vm {
+            
+            cell.configure(with: vm)
         }
         
         return cell
