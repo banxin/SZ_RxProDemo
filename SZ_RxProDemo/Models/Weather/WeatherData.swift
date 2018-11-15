@@ -31,6 +31,13 @@ struct WeatherData: Codable {
         
         let data: [ForecastData]
     }
+    
+    // 一个空模型
+    static let empty = WeatherData(
+        latitude: 0,
+        longitude: 0,
+        currently: CurrentWeather(time: Date(), summary: "", icon: "", temperature: 0, humidity: 0),
+        daily: WeekWeatherData(data: []))
 }
 
 extension WeatherData.CurrentWeather: Equatable {

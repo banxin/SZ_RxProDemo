@@ -17,6 +17,8 @@ import SnapKit
 /// 天气列表
 class WeatherListViewController: UIViewController {
     
+    private var bag = DisposeBag()
+    
     /// 当前天气view
     private var currentWeatherView: CurrentWeatherView = CurrentWeatherView()
     /// 天气预报view
@@ -72,7 +74,7 @@ extension WeatherListViewController {
         view.backgroundColor = UIColor.white
         
         currentWeatherView.delegate = self
-        currentWeatherView.viewModel = CurrentWeatherViewModel()
+//        currentWeatherView.viewModel = CurrentWeatherViewModel()
         
         view.addSubview(currentWeatherView)
         view.addSubview(weatherForecastView)
@@ -217,18 +219,28 @@ extension WeatherListViewController {
         let lat = currentLocation.coordinate.latitude
         let lon = currentLocation.coordinate.longitude
         
-        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon, completion: {
-            response, error in
-            if let error = error {
-                dump(error)
-            }
-            else if let response = response {
+        // self 没有强引用 WeatherDataManager，所以这不会有循环引用
+        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon)
+            .subscribe(onNext: {
                 
-                // Nofity CurrentWeatherViewController
-                self.currentWeatherView.viewModel?.weather = response
-                self.weatherForecastView.viewModel = WeekWeatherViewModel(weatherData: response.daily.data)
-            }
-        })
+                self.currentWeatherView.weatherVM.accept(CurrentWeatherViewModel(weather: $0))
+                self.weatherForecastView.viewModel = WeekWeatherViewModel(weatherData: $0.daily.data)
+            })
+            .disposed(by: bag)
+        
+        // 不需要的代码
+//        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon, completion: {
+//            response, error in
+//            if let error = error {
+//                dump(error)
+//            }
+//            else if let response = response {
+//
+//                // Nofity CurrentWeatherViewController
+//                self.currentWeatherView.viewModel?.weather = response
+//                self.weatherForecastView.viewModel = WeekWeatherViewModel(weatherData: response.daily.data)
+//            }
+//        })
     }
     
     private func fetchCity() {
@@ -242,12 +254,11 @@ extension WeatherListViewController {
             }
             else if let city = placemarks?.first?.locality {
                 
-                // Notify CurrentWeatherViewController
-                let l = Location(
-                    name: city,
+                let location = Location(name: city,
                     latitude: currentLocation.coordinate.latitude,
                     longitude: currentLocation.coordinate.longitude)
-                self.currentWeatherView.viewModel?.location = l
+                
+                self.currentWeatherView.locationVM.accept(CurrentLocationViewModel(location: location))
             }
         })
     }

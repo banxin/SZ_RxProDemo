@@ -46,16 +46,30 @@ class CurrentWeatherView: UIView {
     
     weak var delegate: CurrentWeatherViewDelegate?
     
-    var viewModel: CurrentWeatherViewModel? {
-        didSet {
-            DispatchQueue.main.async { self.updateView() }
-        }
-    }
+    private var bag = DisposeBag()
+    
+    /*
+     BehaviorRelay我们需要在创建的时候，给这个事件序列创建一个初始值，
+     因此，我们传递了之前添加的表示“空View Model”概念的empty
+     */
+    var weatherVM: BehaviorRelay<CurrentWeatherViewModel>   = BehaviorRelay(value: CurrentWeatherViewModel.empty)
+    var locationVM: BehaviorRelay<CurrentLocationViewModel> = BehaviorRelay(value: CurrentLocationViewModel.empty)
+    
+    // ------------ 不再需要这些代码了 --------------
+    //    var viewModel: Variable<CurrentWeatherViewModel>!
+    //    {
+    //        didSet {
+    //            DispatchQueue.main.async { self.updateView() }
+    //        }
+    //    }
+    // ------------ 不再需要这些代码了 --------------
     
     override init(frame: CGRect) {
         
         super.init(frame: frame)
+        
         setupUI()
+        handleRx()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -209,31 +223,75 @@ extension CurrentWeatherView {
         delegate?.settingsButtonPressed()
     }
     
-    func updateView() {
+    private func handleRx() {
         
-        activityIndicatorView.stopAnimating()
-        
-        if let vm = viewModel, vm.isUpdateReady {
+        /*
+         1.当这两个View Models都真正有值之后，更新UI，使用 combineLatest
+         2.筛选一下过滤的结果，要求它们的事件值都不为“空”，使用 filter
+         3.确保订阅者在主线程上执行更新UI代码，使用 .observeOn(MainScheduler.instance)
+         4.订阅到事件，更新UI
+         */
+        Observable.combineLatest(locationVM, weatherVM) {
             
-            updateWeatherContainer(with: vm)
-            
-        } else {
-            
-            loadingFailedLabel.isHidden = false
-            loadingFailedLabel.text = "Fetch weather/location failed."
-        }
+                return ($0, $1)
+            }
+            .filter {
+                
+                let (location, weather) = $0
+                return !(location.isEmpty) && !(weather.isEmpty)
+            }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] in
+                
+                let (location, weather) = $0
+                
+                self.activityIndicatorView.stopAnimating()
+//                self.loadingFailedLabel.isHidden   = true
+                self.weatherContainerView.isHidden = false
+                
+                self.locationLabel.text = location.city
+                
+                self.temperatureLabel.text = weather.temperature
+                self.weatherIcon.image     = weather.weatherIcon
+                self.humidityLabel.text    = weather.humidity
+                self.summaryLabel.text     = weather.summary
+                self.dateLabel.text        = weather.date
+            })
+            .disposed(by: bag)
     }
     
-    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
+    func updateView() {
         
-        loadingFailedLabel.isHidden   = true
-        weatherContainerView.isHidden = false
-        
-        locationLabel.text    = vm.city
-        temperatureLabel.text = vm.temperature
-        weatherIcon.image     = vm.weatherIcon
-        humidityLabel.text    = vm.humidity
-        summaryLabel.text     = vm.summary
-        dateLabel.text        = vm.date
+        weatherVM.accept(weatherVM.value)
+        locationVM.accept(locationVM.value)
     }
+    
+    // 以下代码就不需要了
+//    func updateView() {
+//
+//        activityIndicatorView.stopAnimating()
+//
+//        if let vm = viewModel, vm.isUpdateReady {
+//
+//            updateWeatherContainer(with: vm)
+//
+//        } else {
+//
+//            loadingFailedLabel.isHidden = false
+//            loadingFailedLabel.text = "Fetch weather/location failed."
+//        }
+//    }
+//
+//    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
+//
+//        loadingFailedLabel.isHidden   = true
+//        weatherContainerView.isHidden = false
+//
+//        locationLabel.text    = vm.city
+//        temperatureLabel.text = vm.temperature
+//        weatherIcon.image     = vm.weatherIcon
+//        humidityLabel.text    = vm.humidity
+//        summaryLabel.text     = vm.summary
+//        dateLabel.text        = vm.date
+//    }
 }

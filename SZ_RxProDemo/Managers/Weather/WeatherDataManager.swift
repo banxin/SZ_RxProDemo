@@ -8,6 +8,9 @@
 
 import Foundation
 
+import RxCocoa
+import RxSwift
+
 enum DataManagerError: Error {
     case failedRequest
     case invalidResponse
@@ -26,19 +29,29 @@ final class WeatherDataManager {
     
     typealias CompletionHandler = (WeatherData?, DataManagerError?) -> Void
     
-    func weatherDataAt(latitude: Double, longitude: Double, completion: @escaping CompletionHandler) {
+    func weatherDataAt(latitude: Double, longitude: Double) -> Observable<WeatherData> {
+        
         let url = baseURL.appendingPathComponent("\(latitude), \(longitude)")
         var request = URLRequest(url: url)
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
         
-        self.urlSession.dataTask(with: request, completionHandler: {
-            (data, response, error) in
-            DispatchQueue.main.async {
-                self.didFinishGettingWeatherData(data: data, response: response, error: error, completion: completion)
-            }
-        }).resume()
+        return (self.urlSession as! URLSession).rx.data(request: request).map({ (data) in
+            
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .secondsSince1970
+            let weatherData = try decoder.decode(WeatherData.self, from: data)
+            
+            return weatherData
+        })
+        
+        // ------------ 使用rx后不再需要这些代码了 --------------
+        //        self.urlSession.dataTask(with: request, completionHandler: {
+        //            (data, response, error) in
+        //                self.didFinishGettingWeatherData(data: data, response: response, error: error, completion: completion)
+        //        }).resume()
+        // ------------ 使用rx后不再需要这些代码了 --------------
     }
     
     func didFinishGettingWeatherData(data: Data?, response: URLResponse?, error: Error?, completion: CompletionHandler) {

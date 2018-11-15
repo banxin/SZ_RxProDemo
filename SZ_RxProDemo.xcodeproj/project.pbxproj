@@ -56,6 +56,7 @@
 		EE184FED219966C300D963C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FEC219966C300D963C9 /* SettingsViewController.swift */; };
 		EE184FEF2199682100D963C9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FEE2199682100D963C9 /* UserDefaults.swift */; };
 		EEB8DCB1219D4BED00735457 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */; };
+		EEB8DCB3219D7A3000735457 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */; };
 		EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD50216C56E2000704F7 /* AppDelegate.swift */; };
 		EEE8DD58216C56E4000704F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD57216C56E4000704F7 /* Assets.xcassets */; };
 		EEE8DD5B216C56E4000704F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */; };
@@ -115,6 +116,7 @@
 		EE184FEC219966C300D963C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EE184FEE2199682100D963C9 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
+		EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		EEE8DD4D216C56E2000704F7 /* SZ_RxProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_RxProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DD50216C56E2000704F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE8DD57216C56E4000704F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				EE17ED51219A6AFB009FB648 /* WeekWeatherDayViewModel.swift */,
 				EE17ED57219A72AE009FB648 /* LocationsViewModel.swift */,
 				EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */,
+				EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				EE184FE72199217B00D963C9 /* ForecastData.swift in Sources */,
 				EE184FD12195384D00D963C9 /* WeatherListViewController.swift in Sources */,
 				EE17ED58219A72AE009FB648 /* LocationsViewModel.swift in Sources */,
+				EEB8DCB3219D7A3000735457 /* CurrentLocationViewModel.swift in Sources */,
 				EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */,
 				EE0FE41C217755E800254F39 /* PHPhotoLibrary+SZ.swift in Sources */,
 				EE184FBD2195328900D963C9 /* Location.swift in Sources */,
