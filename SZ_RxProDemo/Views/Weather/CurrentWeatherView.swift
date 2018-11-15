@@ -231,7 +231,8 @@ extension CurrentWeatherView {
          3.确保订阅者在主线程上执行更新UI代码，使用 .observeOn(MainScheduler.instance)
          4.订阅到事件，更新UI
          */
-        Observable.combineLatest(locationVM, weatherVM) {
+        
+        let viewModel = Observable.combineLatest(locationVM, weatherVM) {
             
                 return ($0, $1)
             }
@@ -240,24 +241,20 @@ extension CurrentWeatherView {
                 let (location, weather) = $0
                 return !(location.isEmpty) && !(weather.isEmpty)
             }
+            .share(replay: 1, scope: .whileConnected) // 使用了share(replay:scope:)，避免多次进行合并和筛选
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [unowned self] in
-                
-                let (location, weather) = $0
-                
-                self.activityIndicatorView.stopAnimating()
-//                self.loadingFailedLabel.isHidden   = true
-                self.weatherContainerView.isHidden = false
-                
-                self.locationLabel.text = location.city
-                
-                self.temperatureLabel.text = weather.temperature
-                self.weatherIcon.image     = weather.weatherIcon
-                self.humidityLabel.text    = weather.humidity
-                self.summaryLabel.text     = weather.summary
-                self.dateLabel.text        = weather.date
-            })
-            .disposed(by: bag)
+        
+        // rx bind 的形式
+        viewModel.map { _ in false }.bind(to: self.activityIndicatorView.rx.isAnimating).disposed(by: bag)
+        viewModel.map { _ in false }.bind(to: self.weatherContainerView.rx.isHidden).disposed(by: bag)
+        
+        viewModel.map { $0.0.city }.bind(to: self.locationLabel.rx.text).disposed(by: bag)
+        
+        viewModel.map { $0.1.temperature }.bind(to: self.temperatureLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.weatherIcon }.bind(to: self.weatherIcon.rx.image).disposed(by: bag)
+        viewModel.map { $0.1.humidity }.bind(to: self.humidityLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.summary }.bind(to: self.summaryLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.date }.bind(to: self.dateLabel.rx.text).disposed(by: bag)
     }
     
     func updateView() {
@@ -265,33 +262,4 @@ extension CurrentWeatherView {
         weatherVM.accept(weatherVM.value)
         locationVM.accept(locationVM.value)
     }
-    
-    // 以下代码就不需要了
-//    func updateView() {
-//
-//        activityIndicatorView.stopAnimating()
-//
-//        if let vm = viewModel, vm.isUpdateReady {
-//
-//            updateWeatherContainer(with: vm)
-//
-//        } else {
-//
-//            loadingFailedLabel.isHidden = false
-//            loadingFailedLabel.text = "Fetch weather/location failed."
-//        }
-//    }
-//
-//    func updateWeatherContainer(with vm: CurrentWeatherViewModel) {
-//
-//        loadingFailedLabel.isHidden   = true
-//        weatherContainerView.isHidden = false
-//
-//        locationLabel.text    = vm.city
-//        temperatureLabel.text = vm.temperature
-//        weatherIcon.image     = vm.weatherIcon
-//        humidityLabel.text    = vm.humidity
-//        summaryLabel.text     = vm.summary
-//        dateLabel.text        = vm.date
-//    }
 }

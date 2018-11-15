@@ -182,7 +182,7 @@ extension WeatherListViewController: CLLocationManagerDelegate {
 extension WeatherListViewController {
     
     @objc func applicationDidBecomeActive(notification: Notification) {
-        // Request user's location.
+        
         requestLocation()
     }
 }
@@ -219,28 +219,22 @@ extension WeatherListViewController {
         let lat = currentLocation.coordinate.latitude
         let lon = currentLocation.coordinate.longitude
         
+        // rx bind 的形式绑定数据
         // self 没有强引用 WeatherDataManager，所以这不会有循环引用
-        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon)
-            .subscribe(onNext: {
-                
-                self.currentWeatherView.weatherVM.accept(CurrentWeatherViewModel(weather: $0))
-                self.weatherForecastView.viewModel = WeekWeatherViewModel(weatherData: $0.daily.data)
-            })
+        let weather = WeatherDataManager.shared
+            .weatherDataAt(latitude: lat, longitude: lon)
+            .share(replay: 1, scope: .whileConnected)
+            .observeOn(MainScheduler.instance)
+        
+        weather.map { CurrentWeatherViewModel(weather: $0) }
+            .bind(to: self.currentWeatherView.weatherVM)
             .disposed(by: bag)
         
-        // 不需要的代码
-//        WeatherDataManager.shared.weatherDataAt(latitude: lat, longitude: lon, completion: {
-//            response, error in
-//            if let error = error {
-//                dump(error)
-//            }
-//            else if let response = response {
-//
-//                // Nofity CurrentWeatherViewController
-//                self.currentWeatherView.viewModel?.weather = response
-//                self.weatherForecastView.viewModel = WeekWeatherViewModel(weatherData: response.daily.data)
-//            }
-//        })
+        weather.map { WeekWeatherViewModel(weatherData: $0.daily.data) }
+            .subscribe(onNext: {
+                self.weatherForecastView.viewModel = $0
+            })
+            .disposed(by: bag)
     }
     
     private func fetchCity() {
