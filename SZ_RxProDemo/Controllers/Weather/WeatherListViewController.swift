@@ -111,7 +111,12 @@ extension WeatherListViewController: CurrentWeatherViewDelegate {
     
     func locationButtonPressed() {
         
-        navigationController?.pushViewController(LocationsViewController(), animated: true)
+        let vc = LocationsViewController()
+        
+        vc.currentLocation = currentLocation
+        vc.delegate        = self
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func settingsButtonPressed() {
@@ -134,6 +139,14 @@ extension WeatherListViewController: SettingsViewControllerDelegate {
     func controllerDidChangeTemperatureMode() {
         
         reloadUI()
+    }
+}
+
+extension WeatherListViewController: LocationsViewControllerDelegate {
+    
+    func controller(_ controller: LocationsViewController, didSelectLocation location: CLLocation) {
+        
+        currentLocation = location
     }
 }
 

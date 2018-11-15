@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 private let kAddLocationTableViewCellReuseIdentifier = "kAddLocationTableViewCellReuseIdentifier"
 
@@ -20,10 +19,7 @@ class AddLocationViewController: UITableViewController {
 
     private var searchBar: UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.sz_screenWidth, height: 44))
     
-    private var locations: [Location] = []
-    
-    private lazy var geocoder = CLGeocoder()
-    
+    var viewModel: AddLocationViewModel = AddLocationViewModel()
     var delegate: AddLocationViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -40,6 +36,11 @@ class AddLocationViewController: UITableViewController {
         // Show Keyboard
         searchBar.becomeFirstResponder()
     }
+    
+    deinit {
+        
+        print("AddLocationViewController release!")
+    }
 }
 
 // MARK: - UI
@@ -52,10 +53,21 @@ extension AddLocationViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelTouched))
         
         searchBar.placeholder = "Enter a city name"
+        searchBar.delegate    = self
         
         tableView.tableHeaderView = searchBar
         tableView.tableFooterView = UIView()
         tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: kAddLocationTableViewCellReuseIdentifier)
+        
+        viewModel.locationsDidChange = { [unowned self] locations in
+            
+            self.tableView.reloadData()
+        }
+        
+        viewModel.queryingStatusDidChange = { [unowned self] isQuerying in
+            
+            self.title = isQuerying ? "Searching..." : "Add a location"
+        }
     }
     
     @objc func cancelTouched() {
@@ -64,13 +76,12 @@ extension AddLocationViewController {
     }
 }
 
+// MARK: - Table view data source
 extension AddLocationViewController {
     
-    // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return locations.count
+        
+        return viewModel.numberOfLocations
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,11 +92,10 @@ extension AddLocationViewController {
             fatalError("Unexpected table view cell")
         }
         
-        let location = locations[indexPath.row]
-        
-        let vm = LocationsViewModel(location: location.location, locationText: location.name)
-        
-        cell.configure(with: vm)
+        if let viewModel = viewModel.locationViewModel(at: indexPath.row) {
+            
+            cell.configure(with: viewModel)
+        }
         
         return cell
     }
@@ -93,7 +103,8 @@ extension AddLocationViewController {
     // MARK: - Table view delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let location = locations[indexPath.row]
+        
+        guard let location = viewModel.location(at: indexPath.row) else { return }
         
         delegate?.controller(self, didAddLocation: location)
         
@@ -106,58 +117,17 @@ extension AddLocationViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         searchBar.resignFirstResponder()
-        geocode(address: searchBar.text)
+        viewModel.queryText = searchBar.text ?? ""
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         searchBar.resignFirstResponder()
-        locations = []
-        tableView.reloadData()
-    }
-}
-
-// MARK: - private method
-extension AddLocationViewController {
-    
-    private func geocode(address: String?) {
-        
-        guard let address = address else {
-            
-            locations = []
-            tableView.reloadData()
-            
-            return
-        }
-        
-        geocoder.geocodeAddressString(address) { [weak self] (placemarks, error) in
-            
-            DispatchQueue.main.async {
-                
-                self?.processResponse(with: placemarks, error: error)
-            }
-        }
+        viewModel.queryText = searchBar.text ?? ""
     }
     
-    private func processResponse(with placemarks: [CLPlacemark]?, error: Error?) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        if let error = error {
-            
-            print("Cannot handle Geocode Address! \(error)")
-            
-        } else if let results = placemarks {
-            
-            locations = results.compactMap { result -> Location? in
-                
-                guard let name = result.name else { return nil }
-                guard let location = result.location else { return nil }
-                
-                return Location(name: name,
-                                latitude: location.coordinate.latitude,
-                                longitude: location.coordinate.longitude)
-            }
-            
-            tableView.reloadData()
-        }
+        viewModel.queryText = searchBar.text ?? ""
     }
 }

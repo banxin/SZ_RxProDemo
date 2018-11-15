@@ -36,6 +36,11 @@ class LocationsViewController: UITableViewController {
         
         setupUI()
     }
+    
+    deinit {
+        
+        print("LocationsViewController release!")
+    }
 }
 
 extension LocationsViewController {
@@ -228,7 +233,7 @@ extension LocationsViewController {
             
             delegate?.controller(self, didSelectLocation: location!)
             
-            dismiss(animated: true)
+            navigationController?.popViewController(animated: true)
         }
     }
 }
