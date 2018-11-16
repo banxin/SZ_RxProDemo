@@ -232,9 +232,34 @@ extension CurrentWeatherView {
          4.订阅到事件，更新UI
          */
         
+//        // 1， rx bind 的形式
+//        let viewModel = Observable.combineLatest(locationVM, weatherVM) {
+//
+//                return ($0, $1)
+//            }
+//            .filter {
+//
+//                let (location, weather) = $0
+//                return !(location.isEmpty) && !(weather.isEmpty)
+//            }
+//            .share(replay: 1, scope: .whileConnected) // 使用了share(replay:scope:)，避免多次进行合并和筛选
+//            .observeOn(MainScheduler.instance)
+//
+//        viewModel.map { _ in false }.bind(to: self.activityIndicatorView.rx.isAnimating).disposed(by: bag)
+//        viewModel.map { _ in false }.bind(to: self.weatherContainerView.rx.isHidden).disposed(by: bag)
+//
+//        viewModel.map { $0.0.city }.bind(to: self.locationLabel.rx.text).disposed(by: bag)
+//
+//        viewModel.map { $0.1.temperature }.bind(to: self.temperatureLabel.rx.text).disposed(by: bag)
+//        viewModel.map { $0.1.weatherIcon }.bind(to: self.weatherIcon.rx.image).disposed(by: bag)
+//        viewModel.map { $0.1.humidity }.bind(to: self.humidityLabel.rx.text).disposed(by: bag)
+//        viewModel.map { $0.1.summary }.bind(to: self.summaryLabel.rx.text).disposed(by: bag)
+//        viewModel.map { $0.1.date }.bind(to: self.dateLabel.rx.text).disposed(by: bag)
+        
+        // 2， drive 的形式
         let viewModel = Observable.combineLatest(locationVM, weatherVM) {
             
-                return ($0, $1)
+            return ($0, $1)
             }
             .filter {
                 
@@ -242,19 +267,24 @@ extension CurrentWeatherView {
                 return !(location.isEmpty) && !(weather.isEmpty)
             }
             .share(replay: 1, scope: .whileConnected) // 使用了share(replay:scope:)，避免多次进行合并和筛选
-            .observeOn(MainScheduler.instance)
+            .asDriver(onErrorJustReturn: (CurrentLocationViewModel.empty,
+                CurrentWeatherViewModel.empty))
+        /*
+         什么是Driver呢？简单来说，它就是一个定制过的Observable，拥有下面的特性：
+         • 确保在主线程中订阅，这样也就保证了事件发生后的订阅代码也一定会在主线程中执行；
+         • 不会发生.error事件，我们无需在“订阅”一个Driver的时候，想着处理错误事件的情况。正是由于这个约束，asDriver方法有一个onErrorJustReturn参数，要求我们指定发生错误的生成的事件。这里，我们返回了(CurrentLocationViewModel.empty, CurrentWeatherViewModel.empty)，于是，在任何情况，我们都可以用统一的代码来处理用户交互了；
+         */
         
-        // rx bind 的形式
-        viewModel.map { _ in false }.bind(to: self.activityIndicatorView.rx.isAnimating).disposed(by: bag)
-        viewModel.map { _ in false }.bind(to: self.weatherContainerView.rx.isHidden).disposed(by: bag)
+        viewModel.map { _ in false }.drive(self.activityIndicatorView.rx.isAnimating).disposed(by: bag)
+        viewModel.map { _ in false }.drive(self.weatherContainerView.rx.isHidden).disposed(by: bag)
         
-        viewModel.map { $0.0.city }.bind(to: self.locationLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.0.city }.drive(self.locationLabel.rx.text).disposed(by: bag)
         
-        viewModel.map { $0.1.temperature }.bind(to: self.temperatureLabel.rx.text).disposed(by: bag)
-        viewModel.map { $0.1.weatherIcon }.bind(to: self.weatherIcon.rx.image).disposed(by: bag)
-        viewModel.map { $0.1.humidity }.bind(to: self.humidityLabel.rx.text).disposed(by: bag)
-        viewModel.map { $0.1.summary }.bind(to: self.summaryLabel.rx.text).disposed(by: bag)
-        viewModel.map { $0.1.date }.bind(to: self.dateLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.temperature }.drive(self.temperatureLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.weatherIcon }.drive(self.weatherIcon.rx.image).disposed(by: bag)
+        viewModel.map { $0.1.humidity }.drive(self.humidityLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.summary }.drive(self.summaryLabel.rx.text).disposed(by: bag)
+        viewModel.map { $0.1.date }.drive(self.dateLabel.rx.text).disposed(by: bag)
     }
     
     func updateView() {
