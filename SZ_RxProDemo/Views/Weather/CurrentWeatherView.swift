@@ -25,6 +25,8 @@ class CurrentWeatherView: UIView {
     private var activityIndicatorView = UIActivityIndicatorView()
     /// 加载失败 label
     private var loadingFailedLabel = UILabel(title: "", fontSize: 17, color: UIColor.darkText)
+    /// 重试 label
+    private var retryBtn = UILabel(title: "重试", fontSize: 15, color: UIColor.blue)
     /// 天气 Container
     private lazy var weatherContainerView: UIView = UIView()
     /// 位置图片
@@ -54,6 +56,13 @@ class CurrentWeatherView: UIView {
      */
     var weatherVM: BehaviorRelay<CurrentWeatherViewModel>   = BehaviorRelay(value: CurrentWeatherViewModel.empty)
     var locationVM: BehaviorRelay<CurrentLocationViewModel> = BehaviorRelay(value: CurrentLocationViewModel.empty)
+    
+    fileprivate let reloadSubject = PublishSubject<Void>()
+    
+    var reload: Observable<Void> {
+        
+        return self.reloadSubject.asObserver()
+    }
     
     // ------------ 不再需要这些代码了 --------------
     //    var viewModel: Variable<CurrentWeatherViewModel>!
@@ -86,6 +95,7 @@ extension CurrentWeatherView {
         
         activityIndicatorView.style = .gray
         loadingFailedLabel.textAlignment = .center
+        retryBtn.textAlignment = .center
         
         locationLabel.textAlignment    = .center
         temperatureLabel.textAlignment = .center
@@ -100,6 +110,7 @@ extension CurrentWeatherView {
         
         addSubview(loadingFailedLabel)
         addSubview(activityIndicatorView)
+        addSubview(retryBtn)
         addSubview(weatherContainerView)
         
         weatherContainerView.addSubview(locationImage)
@@ -132,6 +143,13 @@ extension CurrentWeatherView {
         loadingFailedLabel.snp.makeConstraints { (maker) in
             
             maker.center.equalToSuperview()
+        }
+        
+        retryBtn.snp.makeConstraints { (maker) in
+            
+            maker.centerX.equalToSuperview()
+            maker.top.equalTo(self.loadingFailedLabel.snp.bottom).offset(15)
+            maker.height.equalTo(30)
         }
         
         weatherContainerView.snp.makeConstraints { (maker) in
@@ -207,6 +225,13 @@ extension CurrentWeatherView {
             
             self.touchedSettings()
         }
+        
+        retryBtn.sz_addTouchEvent { [weak self] (_) in
+            
+            guard let `self` = self else { return }
+            
+            self.touchedRetry()
+        }
     }
 }
 
@@ -221,6 +246,11 @@ extension CurrentWeatherView {
     private func touchedSettings() {
         
         delegate?.settingsButtonPressed()
+    }
+    
+    private func touchedRetry() {
+        
+        reloadSubject.onNext(())
     }
     
     private func handleRx() {
@@ -256,24 +286,42 @@ extension CurrentWeatherView {
 //        viewModel.map { $0.1.summary }.bind(to: self.summaryLabel.rx.text).disposed(by: bag)
 //        viewModel.map { $0.1.date }.bind(to: self.dateLabel.rx.text).disposed(by: bag)
         
-        // 2， drive 的形式
-        let viewModel = Observable.combineLatest(locationVM, weatherVM) {
-            
-            return ($0, $1)
-            }
-            .filter {
-                
-                let (location, weather) = $0
-                return !(location.isEmpty) && !(weather.isEmpty)
-            }
-            .share(replay: 1, scope: .whileConnected) // 使用了share(replay:scope:)，避免多次进行合并和筛选
-            .asDriver(onErrorJustReturn: (CurrentLocationViewModel.empty,
-                CurrentWeatherViewModel.empty))
-        /*
-         什么是Driver呢？简单来说，它就是一个定制过的Observable，拥有下面的特性：
-         • 确保在主线程中订阅，这样也就保证了事件发生后的订阅代码也一定会在主线程中执行；
-         • 不会发生.error事件，我们无需在“订阅”一个Driver的时候，想着处理错误事件的情况。正是由于这个约束，asDriver方法有一个onErrorJustReturn参数，要求我们指定发生错误的生成的事件。这里，我们返回了(CurrentLocationViewModel.empty, CurrentWeatherViewModel.empty)，于是，在任何情况，我们都可以用统一的代码来处理用户交互了；
-         */
+//        // 2， drive 的形式
+//        let viewModel = Observable.combineLatest(locationVM, weatherVM) {
+//
+//            return ($0, $1)
+//            }
+//            .filter {
+//
+//                let (location, weather) = $0
+//                return !(location.isEmpty) && !(weather.isEmpty)
+//            }
+//            .share(replay: 1, scope: .whileConnected) // 使用了share(replay:scope:)，避免多次进行合并和筛选
+//            .asDriver(onErrorJustReturn: (CurrentLocationViewModel.empty,
+//                CurrentWeatherViewModel.empty))
+//        /*
+//         什么是Driver呢？简单来说，它就是一个定制过的Observable，拥有下面的特性：
+//         • 确保在主线程中订阅，这样也就保证了事件发生后的订阅代码也一定会在主线程中执行；
+//         • 不会发生.error事件，我们无需在“订阅”一个Driver的时候，想着处理错误事件的情况。正是由于这个约束，asDriver方法有一个onErrorJustReturn参数，要求我们指定发生错误的生成的事件。这里，我们返回了(CurrentLocationViewModel.empty, CurrentWeatherViewModel.empty)，于是，在任何情况，我们都可以用统一的代码来处理用户交互了；
+//         */
+//
+//        viewModel.map { _ in false }.drive(self.activityIndicatorView.rx.isAnimating).disposed(by: bag)
+//        viewModel.map { _ in false }.drive(self.weatherContainerView.rx.isHidden).disposed(by: bag)
+//
+//        viewModel.map { $0.0.city }.drive(self.locationLabel.rx.text).disposed(by: bag)
+//
+//        viewModel.map { $0.1.temperature }.drive(self.temperatureLabel.rx.text).disposed(by: bag)
+//        viewModel.map { $0.1.weatherIcon }.drive(self.weatherIcon.rx.image).disposed(by: bag)
+//        viewModel.map { $0.1.humidity }.drive(self.humidityLabel.rx.text).disposed(by: bag)
+//        viewModel.map { $0.1.summary }.drive(self.summaryLabel.rx.text).disposed(by: bag)
+//        viewModel.map { $0.1.date }.drive(self.dateLabel.rx.text).disposed(by: bag)
+        
+        // 3， drive 的形式(带上错误处理)
+        let combined = Observable.combineLatest(locationVM, weatherVM) { ($0, $1) }
+                        .share(replay: 1, scope: .whileConnected)
+        
+        let viewModel = combined.filter { self.shouldDisplayWeatherContainer(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: (.empty, .empty))
         
         viewModel.map { _ in false }.drive(self.activityIndicatorView.rx.isAnimating).disposed(by: bag)
         viewModel.map { _ in false }.drive(self.weatherContainerView.rx.isHidden).disposed(by: bag)
@@ -285,6 +333,53 @@ extension CurrentWeatherView {
         viewModel.map { $0.1.humidity }.drive(self.humidityLabel.rx.text).disposed(by: bag)
         viewModel.map { $0.1.summary }.drive(self.summaryLabel.rx.text).disposed(by: bag)
         viewModel.map { $0.1.date }.drive(self.dateLabel.rx.text).disposed(by: bag)
+        
+        combined.map { self.shouldHideWeatherContainer(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: true)
+            .drive(self.weatherContainerView.rx.isHidden)
+            .disposed(by: bag)
+        
+        combined.map { self.shouldHideActivityIndicator(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: false)
+            .drive(self.activityIndicatorView.rx.isHidden)
+            .disposed(by: bag)
+        
+        combined.map { self.shouldAnimateActivityIndicator(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: true)
+            .drive(self.activityIndicatorView.rx.isAnimating)
+            .disposed(by: bag)
+        
+        let errorCond = combined.map { self.shouldDisplayErrorPrompt(locationVM: $0.0, weatherVM: $0.1) }
+            .asDriver(onErrorJustReturn: true)
+        
+        errorCond.map { !$0 }.drive(self.retryBtn.rx.isHidden).disposed(by: bag)
+        errorCond.map { !$0 }.drive(self.loadingFailedLabel.rx.isHidden).disposed(by: bag)
+        errorCond.map { _ in return String.ok }.drive(self.loadingFailedLabel.rx.text).disposed(by: bag)
+    }
+    
+    private func shouldDisplayWeatherContainer(locationVM: CurrentLocationViewModel, weatherVM: CurrentWeatherViewModel) -> Bool {
+        
+        return !locationVM.isEmpty && !locationVM.isInvalid && !weatherVM.isEmpty && !weatherVM.isInvalid
+    }
+    
+    func shouldHideWeatherContainer(locationVM: CurrentLocationViewModel, weatherVM: CurrentWeatherViewModel) -> Bool {
+        
+        return locationVM.isEmpty || locationVM.isInvalid || weatherVM.isEmpty || weatherVM.isInvalid
+    }
+    
+    func shouldHideActivityIndicator(locationVM: CurrentLocationViewModel, weatherVM: CurrentWeatherViewModel) -> Bool {
+        
+        return (!locationVM.isEmpty && !weatherVM.isEmpty) || locationVM.isInvalid || weatherVM.isInvalid
+    }
+    
+    func shouldAnimateActivityIndicator(locationVM: CurrentLocationViewModel, weatherVM: CurrentWeatherViewModel) -> Bool {
+        
+        return locationVM.isEmpty || weatherVM.isEmpty
+    }
+    
+    func shouldDisplayErrorPrompt(locationVM: CurrentLocationViewModel, weatherVM: CurrentWeatherViewModel) -> Bool {
+        
+        return locationVM.isInvalid || weatherVM.isInvalid
     }
     
     func updateView() {
@@ -292,4 +387,9 @@ extension CurrentWeatherView {
         weatherVM.accept(weatherVM.value)
         locationVM.accept(locationVM.value)
     }
+}
+
+fileprivate extension String {
+    
+    static let ok = NSLocalizedString("Whoops! Something is wrong...", comment: "")
 }

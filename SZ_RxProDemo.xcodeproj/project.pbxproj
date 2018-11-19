@@ -57,6 +57,8 @@
 		EE184FEF2199682100D963C9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FEE2199682100D963C9 /* UserDefaults.swift */; };
 		EEB8DCB1219D4BED00735457 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */; };
 		EEB8DCB3219D7A3000735457 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */; };
+		EEB8DCFF21A28AD800735457 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */; };
+		EEB8DD0121A2917E00735457 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0021A2917E00735457 /* Date.swift */; };
 		EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD50216C56E2000704F7 /* AppDelegate.swift */; };
 		EEE8DD58216C56E4000704F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD57216C56E4000704F7 /* Assets.xcassets */; };
 		EEE8DD5B216C56E4000704F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */; };
@@ -117,6 +119,8 @@
 		EE184FEE2199682100D963C9 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
+		EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		EEB8DD0021A2917E00735457 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		EEE8DD4D216C56E2000704F7 /* SZ_RxProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_RxProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DD50216C56E2000704F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE8DD57216C56E4000704F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 				EE184FE22195897100D963C9 /* UIImage.swift */,
 				EE184FEE2199682100D963C9 /* UserDefaults.swift */,
 				EE17ED55219A7209009FB648 /* CLLocation.swift */,
+				EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */,
+				EEB8DD0021A2917E00735457 /* Date.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				EE17ED4A219A636A009FB648 /* SettingsDateViewModel.swift in Sources */,
 				EE184FEF2199682100D963C9 /* UserDefaults.swift in Sources */,
 				EEB8DCB1219D4BED00735457 /* AddLocationViewModel.swift in Sources */,
+				EEB8DD0121A2917E00735457 /* Date.swift in Sources */,
 				EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */,
 				EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */,
 				EEE8DD6C216C999A000704F7 /* UIDevice+SZ.swift in Sources */,
@@ -576,6 +583,7 @@
 				EE184FCB2195347C00D963C9 /* URLSession.swift in Sources */,
 				EE184FE12195893800D963C9 /* CurrentWeatherViewModel.swift in Sources */,
 				EE17ED52219A6AFB009FB648 /* WeekWeatherDayViewModel.swift in Sources */,
+				EEB8DCFF21A28AD800735457 /* CLLocationManager+Rx.swift in Sources */,
 				EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */,
 				EE184FCF219534A000D963C9 /* URLSessionDataTaskProtocol.swift in Sources */,
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,

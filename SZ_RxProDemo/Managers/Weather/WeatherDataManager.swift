@@ -45,6 +45,20 @@ final class WeatherDataManager {
             
             return weatherData
         })
+        /*
+        调试RxSwift代码时，很有用的operators：materialize和dematerialize。简单来说，materialize可以把一个Observable的所有事件：.next，.complete和.error都变成另一个Observable的.next事件。这样，我们只要观察这个转化过的Observable，就会知道之前的Observable从开始到结束的所有过程了。而dematerialize的作用则是把这个转化过的Observable变回原来的样子。因此，它们总是成对使用的
+             
+            关闭网络将打印：
+            Materialize: error(Error Domain=NSURLErrorDomain Code=-1009 "The Internet connection appears to be offline." 
+        */
+        .materialize().do(onNext: { print("Materialize: \($0)") }).dematerialize()
+        // 错误处理
+        .catchErrorJustReturn(WeatherData.invalid)
+        // 另外一种捕获错误
+//        .catchError({ (_) -> Observable<WeatherData> in
+//
+//             return Observable.just(.invalid)
+//        })
         
         // ------------ 使用rx后不再需要这些代码了 --------------
         //        self.urlSession.dataTask(with: request, completionHandler: {

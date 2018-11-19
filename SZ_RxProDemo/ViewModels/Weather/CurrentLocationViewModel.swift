@@ -13,15 +13,22 @@ struct CurrentLocationViewModel {
     
     var location: Location
     
-    static let empty = CurrentLocationViewModel(location: Location.empty)
-    
     var city: String {
         
         return location.name
     }
     
+    static let empty = CurrentLocationViewModel(location: Location.empty)
+    
     var isEmpty: Bool {
         
         return self.location == Location.empty
+    }
+    
+    static let invalid = CurrentLocationViewModel(location: .invalid)
+    
+    var isInvalid: Bool {
+        
+        return self.location == Location.invalid
     }
 }
