@@ -91,6 +91,7 @@ extension WeatherForecastView {
         
         tableView?.dataSource = self
         tableView?.delegate   = self
+        tableView?.tableFooterView = UIView()
         
         tableView?.estimatedRowHeight           = 0
         tableView?.estimatedSectionHeaderHeight = 0
