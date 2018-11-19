@@ -59,6 +59,12 @@
 		EEB8DCB3219D7A3000735457 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */; };
 		EEB8DCFF21A28AD800735457 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */; };
 		EEB8DD0121A2917E00735457 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0021A2917E00735457 /* Date.swift */; };
+		EEB8DD0721A2ADEA00735457 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0621A2ADEA00735457 /* LoginView.swift */; };
+		EEB8DD0921A2BC9F00735457 /* String+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0821A2BC9F00735457 /* String+SZ.swift */; };
+		EEB8DD0C21A2CAE300735457 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0B21A2CAE300735457 /* LoginViewController.swift */; };
+		EEB8DD0E21A2D9A800735457 /* HUD+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0D21A2D9A800735457 /* HUD+SZ.swift */; };
+		EEB8DD1021A2DA9000735457 /* DispatchTime+Hipac.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD0F21A2DA9000735457 /* DispatchTime+Hipac.swift */; };
+		EEB8DD1221A2DBE800735457 /* TextToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DD1121A2DBE800735457 /* TextToast.swift */; };
 		EEE8DD51216C56E2000704F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE8DD50216C56E2000704F7 /* AppDelegate.swift */; };
 		EEE8DD58216C56E4000704F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD57216C56E4000704F7 /* Assets.xcassets */; };
 		EEE8DD5B216C56E4000704F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE8DD59216C56E4000704F7 /* LaunchScreen.storyboard */; };
@@ -121,6 +127,12 @@
 		EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
 		EEB8DD0021A2917E00735457 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		EEB8DD0621A2ADEA00735457 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		EEB8DD0821A2BC9F00735457 /* String+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SZ.swift"; sourceTree = "<group>"; };
+		EEB8DD0B21A2CAE300735457 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EEB8DD0D21A2D9A800735457 /* HUD+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HUD+SZ.swift"; sourceTree = "<group>"; };
+		EEB8DD0F21A2DA9000735457 /* DispatchTime+Hipac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchTime+Hipac.swift"; sourceTree = "<group>"; };
+		EEB8DD1121A2DBE800735457 /* TextToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToast.swift; sourceTree = "<group>"; };
 		EEE8DD4D216C56E2000704F7 /* SZ_RxProDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SZ_RxProDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DD50216C56E2000704F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEE8DD57216C56E4000704F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,6 +354,22 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		EEB8DD0221A2ADBD00735457 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EEB8DD0621A2ADEA00735457 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EEB8DD0A21A2CA5200735457 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EEB8DD0B21A2CAE300735457 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		EEE8DD44216C56E2000704F7 = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +412,7 @@
 		EEE8DD62216C59CD000704F7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EEB8DD0A21A2CA5200735457 /* Login */,
 				EE184F8921944D7600D963C9 /* Main */,
 				EE184F8A21944D7600D963C9 /* Todo */,
 				EE184F8E21944D7600D963C9 /* Weather */,
@@ -403,6 +432,10 @@
 				EE184FA62194625C00D963C9 /* Bundle+SZ.swift */,
 				EE184FD4219538CF00D963C9 /* UIView+SZ.swift */,
 				EE184FD62195394600D963C9 /* UILabel+SZ.swift */,
+				EEB8DD0821A2BC9F00735457 /* String+SZ.swift */,
+				EEB8DD0D21A2D9A800735457 /* HUD+SZ.swift */,
+				EEB8DD0F21A2DA9000735457 /* DispatchTime+Hipac.swift */,
+				EEB8DD1121A2DBE800735457 /* TextToast.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -419,6 +452,7 @@
 		EEE8DD6D216CA6A6000704F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EEB8DD0221A2ADBD00735457 /* Login */,
 				EE184FB5219520B600D963C9 /* Weather */,
 				EE184F9221944D8300D963C9 /* Todo */,
 			);
@@ -459,6 +493,7 @@
 				TargetAttributes = {
 					EEE8DD4C216C56E2000704F7 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -520,12 +555,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SZ_RxProDemo/Pods-SZ_RxProDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,10 +581,12 @@
 				EE0FE3EC216F27B500254F39 /* UIColor+SZ.swift in Sources */,
 				EE0FE41421757FC900254F39 /* UIImage+SZ.swift in Sources */,
 				EE17ED56219A7209009FB648 /* CLLocation.swift in Sources */,
+				EEB8DD1021A2DA9000735457 /* DispatchTime+Hipac.swift in Sources */,
 				EE184FDB2195848400D963C9 /* URLSessionDataTask.swift in Sources */,
 				EE184FD32195388200D963C9 /* CurrentWeatherView.swift in Sources */,
 				EE184FED219966C300D963C9 /* SettingsViewController.swift in Sources */,
 				EE184FE9219921B700D963C9 /* WeekWeatherViewModel.swift in Sources */,
+				EEB8DD0721A2ADEA00735457 /* LoginView.swift in Sources */,
 				EE17ED5C219A7316009FB648 /* LocationTableViewCell.swift in Sources */,
 				EE184FAB2194665A00D963C9 /* AppInfo.swift in Sources */,
 				EE184FE52195999B00D963C9 /* WeekWeatherTableViewCell.swift in Sources */,
@@ -567,6 +606,8 @@
 				EEB8DCB1219D4BED00735457 /* AddLocationViewModel.swift in Sources */,
 				EEB8DD0121A2917E00735457 /* Date.swift in Sources */,
 				EE184F9D21944D8C00D963C9 /* PlistDocument.swift in Sources */,
+				EEB8DD0E21A2D9A800735457 /* HUD+SZ.swift in Sources */,
+				EEB8DD1221A2DBE800735457 /* TextToast.swift in Sources */,
 				EEE8DD6A216C993E000704F7 /* UIScreen+SZ.swift in Sources */,
 				EEE8DD6C216C999A000704F7 /* UIDevice+SZ.swift in Sources */,
 				EE17ED5E219A740F009FB648 /* AddLocationViewController.swift in Sources */,
@@ -581,6 +622,7 @@
 				EE0FE41A217740C700254F39 /* UIViewController+SZ.swift in Sources */,
 				EE184FD921957BD800D963C9 /* WeatherForecastView.swift in Sources */,
 				EE184FCB2195347C00D963C9 /* URLSession.swift in Sources */,
+				EEB8DD0C21A2CAE300735457 /* LoginViewController.swift in Sources */,
 				EE184FE12195893800D963C9 /* CurrentWeatherViewModel.swift in Sources */,
 				EE17ED52219A6AFB009FB648 /* WeekWeatherDayViewModel.swift in Sources */,
 				EEB8DCFF21A28AD800735457 /* CLLocationManager+Rx.swift in Sources */,
@@ -588,6 +630,7 @@
 				EE184FCF219534A000D963C9 /* URLSessionDataTaskProtocol.swift in Sources */,
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,
 				EE184F9621944D8300D963C9 /* PhotoCell.swift in Sources */,
+				EEB8DD0921A2BC9F00735457 /* String+SZ.swift in Sources */,
 				EE184FD5219538CF00D963C9 /* UIView+SZ.swift in Sources */,
 				EE17ED5A219A72C1009FB648 /* LocationRepresentable.swift in Sources */,
 				EE17ED4C219A6398009FB648 /* SettingsTemperatureViewModel.swift in Sources */,
@@ -732,6 +775,7 @@
 			baseConfigurationReference = 2F27D33C7A932600289D4349 /* Pods-SZ_RxProDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3966R49VCK;
 				INFOPLIST_FILE = SZ_RxProDemo/Info.plist;
@@ -741,6 +785,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sz.rxProDemo.SZ-RxProDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -751,6 +796,7 @@
 			baseConfigurationReference = 1C3CBA123119318BE35CCD15 /* Pods-SZ_RxProDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3966R49VCK;
 				INFOPLIST_FILE = SZ_RxProDemo/Info.plist;

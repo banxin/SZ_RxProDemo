@@ -26,6 +26,8 @@ class MainListViewController: UITableViewController {
         
         super.viewDidLoad()
         
+        presentLogin()
+        
         setupUI()
         rxBind()
     }
@@ -83,5 +85,12 @@ extension MainListViewController {
                 }
             
         }).disposed(by: bag)
+    }
+    
+    private func presentLogin() {
+        
+        let nav = UINavigationController(rootViewController: LoginViewController())
+        
+        present(nav, animated: true, completion: nil)
     }
 }

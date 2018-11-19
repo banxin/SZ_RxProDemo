@@ -105,22 +105,22 @@ extension WeatherForecastView {
         }
     }
     
-    private func rxBind() {
-        
-        // 将数据源数据绑定到tableView上
-        weekWeatherItems.bind(to: tableView!.rx.items(cellIdentifier: kWeekWeatherTableViewCellIndentifier)) { _, wetherItem, originCell in
-            
-            if let cell = originCell as? WeekWeatherTableViewCell {
-                
-                cell.item.accept(wetherItem)
-            }
-            
-        }.disposed(by: bag)
-        
-//        tableView?.rx.modelSelected(weekWeatherItems.self).subscribe(onNext: { (wetherItem) in
+//    private func rxBind() {
 //
-//        }).disposed(by: bag)
-    }
+//        // 将数据源数据绑定到tableView上
+//        weekWeatherItems.bind(to: tableView!.rx.items(cellIdentifier: kWeekWeatherTableViewCellIndentifier)) { _, wetherItem, originCell in
+//
+//            if let cell = originCell as? WeekWeatherTableViewCell {
+//
+//                cell.item.accept(wetherItem)
+//            }
+//
+//        }.disposed(by: bag)
+//
+////        tableView?.rx.modelSelected(weekWeatherItems.self).subscribe(onNext: { (wetherItem) in
+////
+////        }).disposed(by: bag)
+//    }
 }
 
 extension WeatherForecastView: UITableViewDataSource, UITableViewDelegate {
