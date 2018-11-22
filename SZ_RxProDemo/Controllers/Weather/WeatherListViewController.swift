@@ -14,6 +14,14 @@ import RxSwift
 import RxCocoa
 import SnapKit
 
+/*
+ 开放API地址:
+ 
+ https://darksky.net/dev/login?next=/account
+ 
+ 申请一下就OK
+ */
+
 /// 天气列表
 class WeatherListViewController: UIViewController {
     
