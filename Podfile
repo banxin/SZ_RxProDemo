@@ -10,4 +10,5 @@ target 'SZ_RxProDemo' do
   pod 'RxCocoa'
   pod 'SnapKit', '~> 4.0.0'
   pod 'SVProgressHUD',            '2.2.5'
+  pod 'Then'
 end

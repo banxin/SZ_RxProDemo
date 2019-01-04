@@ -10,6 +10,7 @@ import UIKit
 
 import RxCocoa
 import RxSwift
+import Then
 
 private let kMainCellReuseIdentifier = "kMainCellReuseIdentifier"
 
@@ -20,13 +21,13 @@ class MainListViewController: UITableViewController {
     private let bag: DisposeBag = DisposeBag()
     
     /// 展示数据
-    private var demos = BehaviorRelay<[String]>(value: ["Todo Demo", "Weather Demo"])
+    private var demos = BehaviorRelay<[String]>(value: ["Todo Demo", "Weather Demo", "DoubleScroller Demo"])
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        presentLogin()
+//        presentLogin()
         
         setupUI()
         rxBind()

@@ -55,6 +55,11 @@
 		EE184FEB21995F9400D963C9 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FEA21995F9400D963C9 /* SettingsTableViewCell.swift */; };
 		EE184FED219966C300D963C9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FEC219966C300D963C9 /* SettingsViewController.swift */; };
 		EE184FEF2199682100D963C9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE184FEE2199682100D963C9 /* UserDefaults.swift */; };
+		EE3A590E21DDDDC100117829 /* SZNestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3A590D21DDDDC100117829 /* SZNestTableView.swift */; };
+		EE3A591021DDE3DE00117829 /* SZContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3A590F21DDE3DE00117829 /* SZContentView.swift */; };
+		EE7A455921DC946B00825E82 /* DoubleScrollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A455821DC946B00825E82 /* DoubleScrollerViewController.swift */; };
+		EE7A455D21DCAAAB00825E82 /* EventPermeableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A455C21DCAAAB00825E82 /* EventPermeableTableView.swift */; };
+		EE7A455F21DCACD000825E82 /* DoubleScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A455E21DCACD000825E82 /* DoubleScrollerView.swift */; };
 		EEB8DCB1219D4BED00735457 /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */; };
 		EEB8DCB3219D7A3000735457 /* CurrentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */; };
 		EEB8DCFF21A28AD800735457 /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */; };
@@ -123,6 +128,11 @@
 		EE184FEA21995F9400D963C9 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		EE184FEC219966C300D963C9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EE184FEE2199682100D963C9 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		EE3A590D21DDDDC100117829 /* SZNestTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZNestTableView.swift; sourceTree = "<group>"; };
+		EE3A590F21DDE3DE00117829 /* SZContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZContentView.swift; sourceTree = "<group>"; };
+		EE7A455821DC946B00825E82 /* DoubleScrollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleScrollerViewController.swift; sourceTree = "<group>"; };
+		EE7A455C21DCAAAB00825E82 /* EventPermeableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPermeableTableView.swift; sourceTree = "<group>"; };
+		EE7A455E21DCACD000825E82 /* DoubleScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleScrollerView.swift; sourceTree = "<group>"; };
 		EEB8DCB0219D4BED00735457 /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		EEB8DCB2219D7A3000735457 /* CurrentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewModel.swift; sourceTree = "<group>"; };
 		EEB8DCFE21A28AD800735457 /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
@@ -354,6 +364,25 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		EE7A455621DC944000825E82 /* DoubleScroller */ = {
+			isa = PBXGroup;
+			children = (
+				EE7A455821DC946B00825E82 /* DoubleScrollerViewController.swift */,
+			);
+			path = DoubleScroller;
+			sourceTree = "<group>";
+		};
+		EE7A455721DC944D00825E82 /* DoubleScroller */ = {
+			isa = PBXGroup;
+			children = (
+				EE7A455C21DCAAAB00825E82 /* EventPermeableTableView.swift */,
+				EE7A455E21DCACD000825E82 /* DoubleScrollerView.swift */,
+				EE3A590D21DDDDC100117829 /* SZNestTableView.swift */,
+				EE3A590F21DDE3DE00117829 /* SZContentView.swift */,
+			);
+			path = DoubleScroller;
+			sourceTree = "<group>";
+		};
 		EEB8DD0221A2ADBD00735457 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +441,7 @@
 		EEE8DD62216C59CD000704F7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EE7A455621DC944000825E82 /* DoubleScroller */,
 				EEB8DD0A21A2CA5200735457 /* Login */,
 				EE184F8921944D7600D963C9 /* Main */,
 				EE184F8A21944D7600D963C9 /* Todo */,
@@ -452,6 +482,7 @@
 		EEE8DD6D216CA6A6000704F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE7A455721DC944D00825E82 /* DoubleScroller */,
 				EEB8DD0221A2ADBD00735457 /* Login */,
 				EE184FB5219520B600D963C9 /* Weather */,
 				EE184F9221944D8300D963C9 /* Todo */,
@@ -553,17 +584,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SZ_RxProDemo/Pods-SZ_RxProDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -602,6 +637,7 @@
 				EE184FCD2195349000D963C9 /* URLSessionProtocol.swift in Sources */,
 				EE184FE32195897100D963C9 /* UIImage.swift in Sources */,
 				EE17ED4A219A636A009FB648 /* SettingsDateViewModel.swift in Sources */,
+				EE7A455F21DCACD000825E82 /* DoubleScrollerView.swift in Sources */,
 				EE184FEF2199682100D963C9 /* UserDefaults.swift in Sources */,
 				EEB8DCB1219D4BED00735457 /* AddLocationViewModel.swift in Sources */,
 				EEB8DD0121A2917E00735457 /* Date.swift in Sources */,
@@ -624,14 +660,18 @@
 				EE184FCB2195347C00D963C9 /* URLSession.swift in Sources */,
 				EEB8DD0C21A2CAE300735457 /* LoginViewController.swift in Sources */,
 				EE184FE12195893800D963C9 /* CurrentWeatherViewModel.swift in Sources */,
+				EE7A455921DC946B00825E82 /* DoubleScrollerViewController.swift in Sources */,
+				EE7A455D21DCAAAB00825E82 /* EventPermeableTableView.swift in Sources */,
 				EE17ED52219A6AFB009FB648 /* WeekWeatherDayViewModel.swift in Sources */,
 				EEB8DCFF21A28AD800735457 /* CLLocationManager+Rx.swift in Sources */,
 				EE184FA72194625C00D963C9 /* Bundle+SZ.swift in Sources */,
 				EE184FCF219534A000D963C9 /* URLSessionDataTaskProtocol.swift in Sources */,
+				EE3A591021DDE3DE00117829 /* SZContentView.swift in Sources */,
 				EE184FBF219532A200D963C9 /* WeatherData.swift in Sources */,
 				EE184F9621944D8300D963C9 /* PhotoCell.swift in Sources */,
 				EEB8DD0921A2BC9F00735457 /* String+SZ.swift in Sources */,
 				EE184FD5219538CF00D963C9 /* UIView+SZ.swift in Sources */,
+				EE3A590E21DDDDC100117829 /* SZNestTableView.swift in Sources */,
 				EE17ED5A219A72C1009FB648 /* LocationRepresentable.swift in Sources */,
 				EE17ED4C219A6398009FB648 /* SettingsTemperatureViewModel.swift in Sources */,
 				EE184F9721944D8300D963C9 /* TodoItemCell.swift in Sources */,
@@ -779,6 +819,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3966R49VCK;
 				INFOPLIST_FILE = SZ_RxProDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -800,6 +841,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3966R49VCK;
 				INFOPLIST_FILE = SZ_RxProDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
